@@ -12,6 +12,13 @@ target_link_libraries(cyber_example_listener
     pthread
 )
 
+
+add_executable(cyber_example_listener_zjw listener_zjw.cc proto/examples.pb.cc)
+target_link_libraries(cyber_example_listener_zjw
+    ${TARGET_NAME}
+    pthread
+)
+
 add_executable(cyber_example_paramserver paramserver.cc)
 target_link_libraries(cyber_example_paramserver
     ${TARGET_NAME}

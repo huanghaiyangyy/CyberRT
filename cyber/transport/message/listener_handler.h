@@ -162,9 +162,23 @@ template <typename MessageT>
 void ListenerHandler<MessageT>::Run(const Message& msg,
                                     const MessageInfo& msg_info) {
   signal_(msg, msg_info);
-  uint64_t oppo_id = msg_info.sender_id().HashValue();
+  // uint64_t oppo_id = msg_info.id();
+  // Change Id to re calculated channel id.
+  uint64_t oppo_id = msg_info.channel_id();
   ReadLockGuard<AtomicRWLock> lock(rw_lock_);
+  // 测试不同hash算法的 µH5ŒUkF] 值
+  // x86 gcc:16701037796774183858
+  // Android llvm clang: 3503852330217222637
+
+  // uint64_t registered_id;
+  // for (auto& item : signals_) {
+  //   ADEBUG << " - Registered oppo_id: " << item.first;
+  //   registered_id = item.first;
+  // }
+  // ADEBUG << "Received oppo_id: " << oppo_id;
+
   if (signals_.find(oppo_id) == signals_.end()) {
+    AERROR << "Do not have listener for " << oppo_id;
     return;
   }
 

@@ -97,6 +97,7 @@ template <typename MessageT>
 void RtpsDispatcher::AddListener(const RoleAttributes& self_attr,
                                  const RoleAttributes& opposite_attr,
                                  const MessageListener<MessageT>& listener) {
+  ADEBUG << "Add Listener RTPS 2";
   auto listener_adapter = [listener](
                               const std::shared_ptr<std::string>& msg_str,
                               const MessageInfo& msg_info) {

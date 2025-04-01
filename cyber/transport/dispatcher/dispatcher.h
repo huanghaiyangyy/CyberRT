@@ -25,11 +25,12 @@
 #include <string>
 #include <unordered_map>
 
+#include "cyber/proto/role_attributes.pb.h"
+
 #include "cyber/base/atomic_hash_map.h"
 #include "cyber/base/atomic_rw_lock.h"
 #include "cyber/common/global_data.h"
 #include "cyber/common/log.h"
-#include "cyber/proto/role_attributes.pb.h"
 #include "cyber/transport/message/listener_handler.h"
 #include "cyber/transport/message/message_info.h"
 
@@ -137,7 +138,14 @@ void Dispatcher::AddListener(const RoleAttributes& self_attr,
     handler.reset(new ListenerHandler<MessageT>());
     msg_listeners_.Set(channel_id, handler);
   }
-  handler->Connect(self_attr.id(), opposite_attr.id(), listener);
+  // handler->Connect(self_attr.id(), opposite_attr.id(), listener);
+  // 重新根据channel name 计算channel id，用于索引listener的回调函数map
+  auto re_cal_channel_id = common::Hash(opposite_attr.channel_name());
+  ADEBUG << "Add listener Opposite channel_name:"
+         << opposite_attr.channel_name()
+         << "re_cal_channel_id:" << re_cal_channel_id;
+
+  handler->Connect(self_attr.id(), re_cal_channel_id, listener);
 }
 
 template <typename MessageT>

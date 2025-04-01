@@ -40,6 +40,7 @@ void RtpsDispatcher::Shutdown() {
 }
 
 void RtpsDispatcher::AddSubscriber(const RoleAttributes& self_attr) {
+  ADEBUG << "添加订阅者RTPS";
   if (participant_ == nullptr) {
     AWARN << "please set participant firstly.";
     return;
@@ -71,6 +72,7 @@ void RtpsDispatcher::AddSubscriber(const RoleAttributes& self_attr) {
 void RtpsDispatcher::OnMessage(uint64_t channel_id,
                                const std::shared_ptr<std::string>& msg_str,
                                const MessageInfo& msg_info) {
+  ADEBUG << "ON msg RTPS";
   if (is_shutdown_.load()) {
     return;
   }

@@ -77,6 +77,7 @@ void RtpsReceiver<M>::Disable() {
 
 template <typename M>
 void RtpsReceiver<M>::Enable(const RoleAttributes& opposite_attr) {
+  ADEBUG << "Enable RTPS 1";
   dispatcher_->AddListener<M>(
       this->attr_, opposite_attr,
       std::bind(&RtpsReceiver<M>::OnNewMessage, this, std::placeholders::_1,

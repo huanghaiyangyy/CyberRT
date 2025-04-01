@@ -47,6 +47,12 @@ void SubListener::onNewDataMessage(eprosima::fastrtps::Subscriber* sub) {
   Identity sender_id(false);
   sender_id.set_data(ptr);
   msg_info_.set_sender_id(sender_id);
+  // Add channel_id
+  msg_info_.set_channel_id(channel_id);
+
+  ADEBUG << "Get message - sub->getAttributes().topic.getTopicName():"
+         << sub->getAttributes().topic.getTopicName();
+  ADEBUG << "channel_id:" << channel_id;
 
   Identity spare_id(false);
   spare_id.set_data(ptr + ID_SIZE);

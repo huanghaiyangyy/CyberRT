@@ -127,6 +127,7 @@ auto Transport::CreateReceiver(
     const RoleAttributes& attr,
     const typename Receiver<M>::MessageListener& msg_listener,
     const OptionalMode& mode) -> typename std::shared_ptr<Receiver<M>> {
+  ADEBUG << "Create Receiver!";
   if (is_shutdown_.load()) {
     AINFO << "transport has been shut down.";
     return nullptr;
@@ -138,6 +139,8 @@ auto Transport::CreateReceiver(
     modified_attr.mutable_qos_profile()->CopyFrom(
         QosProfileConf::QOS_PROFILE_DEFAULT);
   }
+
+  ADEBUG << "Receiver mode: " << mode;
 
   switch (mode) {
     case OptionalMode::INTRA:
