@@ -264,3 +264,27 @@ message FusionParkingSlotsInfo {
   optional davinci_adas.apa.odometry.Odometry odom = 3;
   optional MessageStatus msg_status = 4;
 }
+
+message FusionLocalObstaclesInfo {
+  optional apollo.common.Header header = 1;
+  message ObstaclesEntry {
+    optional uint32 key = 1;
+    optional davinci_adas.apa.common.ObstacleObject value = 2;
+  }
+  repeated davinci_adas.apa.fusion.FusionLocalObstaclesInfo.ObstaclesEntry
+      obstacles = 2;
+  optional davinci_adas.apa.odometry.Odometry odom = 3;
+  optional MessageStatus msg_status = 4;
+}
+
+message FusionLocalSemanticMapInfo {
+  optional apollo.common.Header header = 1;
+  optional davinci_adas.apa.common.SemanticMapInfo occupied_grid_map = 2;
+  optional davinci_adas.apa.odometry.Odometry odom = 4;
+  optional davinci_adas.apa.common.ImageParam map2car_param = 5;
+  optional davinci_adas.apa.common.ImageParam map2slot_param = 6;
+  optional davinci_adas.apa.common.ParkingSlotLocation slot_origin_in_map = 7;
+  optional MessageStatus msg_status = 8;
+  optional davinci_adas.apa.geometry.Line scanned_area_bound = 9;
+  repeated davinci_adas.apa.geometry.Polygon scanned_area = 10;
+}

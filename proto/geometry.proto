@@ -19,3 +19,7 @@ message Line {
   optional davinci_adas.apa.geometry.Point2Df start = 1;
   optional davinci_adas.apa.geometry.Point2Df end = 2;
 }
+message Polygon {
+  optional bool is_open = 1;
+  repeated davinci_adas.apa.geometry.Point2Df points = 2;
+}

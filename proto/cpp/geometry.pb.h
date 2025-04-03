@@ -46,7 +46,7 @@ struct TableStruct_geometry_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[3]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[4]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -62,6 +62,9 @@ extern LineDefaultTypeInternal _Line_default_instance_;
 class Point2Df;
 class Point2DfDefaultTypeInternal;
 extern Point2DfDefaultTypeInternal _Point2Df_default_instance_;
+class Polygon;
+class PolygonDefaultTypeInternal;
+extern PolygonDefaultTypeInternal _Polygon_default_instance_;
 class Pose;
 class PoseDefaultTypeInternal;
 extern PoseDefaultTypeInternal _Pose_default_instance_;
@@ -71,6 +74,7 @@ extern PoseDefaultTypeInternal _Pose_default_instance_;
 PROTOBUF_NAMESPACE_OPEN
 template<> ::davinci_adas::apa::geometry::Line* Arena::CreateMaybeMessage<::davinci_adas::apa::geometry::Line>(Arena*);
 template<> ::davinci_adas::apa::geometry::Point2Df* Arena::CreateMaybeMessage<::davinci_adas::apa::geometry::Point2Df>(Arena*);
+template<> ::davinci_adas::apa::geometry::Polygon* Arena::CreateMaybeMessage<::davinci_adas::apa::geometry::Polygon>(Arena*);
 template<> ::davinci_adas::apa::geometry::Pose* Arena::CreateMaybeMessage<::davinci_adas::apa::geometry::Pose>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace davinci_adas {
@@ -621,6 +625,174 @@ class Line PROTOBUF_FINAL :
   ::davinci_adas::apa::geometry::Point2Df* end_;
   friend struct ::TableStruct_geometry_2eproto;
 };
+// -------------------------------------------------------------------
+
+class Polygon PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:davinci_adas.apa.geometry.Polygon) */ {
+ public:
+  inline Polygon() : Polygon(nullptr) {}
+  virtual ~Polygon();
+
+  Polygon(const Polygon& from);
+  Polygon(Polygon&& from) noexcept
+    : Polygon() {
+    *this = ::std::move(from);
+  }
+
+  inline Polygon& operator=(const Polygon& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Polygon& operator=(Polygon&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const Polygon& default_instance();
+
+  static inline const Polygon* internal_default_instance() {
+    return reinterpret_cast<const Polygon*>(
+               &_Polygon_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    3;
+
+  friend void swap(Polygon& a, Polygon& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Polygon* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Polygon* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Polygon* New() const final {
+    return CreateMaybeMessage<Polygon>(nullptr);
+  }
+
+  Polygon* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Polygon>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const Polygon& from);
+  void MergeFrom(const Polygon& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Polygon* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "davinci_adas.apa.geometry.Polygon";
+  }
+  protected:
+  explicit Polygon(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_geometry_2eproto);
+    return ::descriptor_table_geometry_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kPointsFieldNumber = 2,
+    kIsOpenFieldNumber = 1,
+  };
+  // repeated .davinci_adas.apa.geometry.Point2Df points = 2;
+  int points_size() const;
+  private:
+  int _internal_points_size() const;
+  public:
+  void clear_points();
+  ::davinci_adas::apa::geometry::Point2Df* mutable_points(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::davinci_adas::apa::geometry::Point2Df >*
+      mutable_points();
+  private:
+  const ::davinci_adas::apa::geometry::Point2Df& _internal_points(int index) const;
+  ::davinci_adas::apa::geometry::Point2Df* _internal_add_points();
+  public:
+  const ::davinci_adas::apa::geometry::Point2Df& points(int index) const;
+  ::davinci_adas::apa::geometry::Point2Df* add_points();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::davinci_adas::apa::geometry::Point2Df >&
+      points() const;
+
+  // optional bool is_open = 1;
+  bool has_is_open() const;
+  private:
+  bool _internal_has_is_open() const;
+  public:
+  void clear_is_open();
+  bool is_open() const;
+  void set_is_open(bool value);
+  private:
+  bool _internal_is_open() const;
+  void _internal_set_is_open(bool value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:davinci_adas.apa.geometry.Polygon)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::davinci_adas::apa::geometry::Point2Df > points_;
+  bool is_open_;
+  friend struct ::TableStruct_geometry_2eproto;
+};
 // ===================================================================
 
 
@@ -1002,9 +1174,82 @@ inline void Line::set_allocated_end(::davinci_adas::apa::geometry::Point2Df* end
   // @@protoc_insertion_point(field_set_allocated:davinci_adas.apa.geometry.Line.end)
 }
 
+// -------------------------------------------------------------------
+
+// Polygon
+
+// optional bool is_open = 1;
+inline bool Polygon::_internal_has_is_open() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool Polygon::has_is_open() const {
+  return _internal_has_is_open();
+}
+inline void Polygon::clear_is_open() {
+  is_open_ = false;
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline bool Polygon::_internal_is_open() const {
+  return is_open_;
+}
+inline bool Polygon::is_open() const {
+  // @@protoc_insertion_point(field_get:davinci_adas.apa.geometry.Polygon.is_open)
+  return _internal_is_open();
+}
+inline void Polygon::_internal_set_is_open(bool value) {
+  _has_bits_[0] |= 0x00000001u;
+  is_open_ = value;
+}
+inline void Polygon::set_is_open(bool value) {
+  _internal_set_is_open(value);
+  // @@protoc_insertion_point(field_set:davinci_adas.apa.geometry.Polygon.is_open)
+}
+
+// repeated .davinci_adas.apa.geometry.Point2Df points = 2;
+inline int Polygon::_internal_points_size() const {
+  return points_.size();
+}
+inline int Polygon::points_size() const {
+  return _internal_points_size();
+}
+inline void Polygon::clear_points() {
+  points_.Clear();
+}
+inline ::davinci_adas::apa::geometry::Point2Df* Polygon::mutable_points(int index) {
+  // @@protoc_insertion_point(field_mutable:davinci_adas.apa.geometry.Polygon.points)
+  return points_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::davinci_adas::apa::geometry::Point2Df >*
+Polygon::mutable_points() {
+  // @@protoc_insertion_point(field_mutable_list:davinci_adas.apa.geometry.Polygon.points)
+  return &points_;
+}
+inline const ::davinci_adas::apa::geometry::Point2Df& Polygon::_internal_points(int index) const {
+  return points_.Get(index);
+}
+inline const ::davinci_adas::apa::geometry::Point2Df& Polygon::points(int index) const {
+  // @@protoc_insertion_point(field_get:davinci_adas.apa.geometry.Polygon.points)
+  return _internal_points(index);
+}
+inline ::davinci_adas::apa::geometry::Point2Df* Polygon::_internal_add_points() {
+  return points_.Add();
+}
+inline ::davinci_adas::apa::geometry::Point2Df* Polygon::add_points() {
+  // @@protoc_insertion_point(field_add:davinci_adas.apa.geometry.Polygon.points)
+  return _internal_add_points();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::davinci_adas::apa::geometry::Point2Df >&
+Polygon::points() const {
+  // @@protoc_insertion_point(field_list:davinci_adas.apa.geometry.Polygon.points)
+  return points_;
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

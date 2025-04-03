@@ -16,17 +16,21 @@
 #include <google/protobuf/port_def.inc>
 extern PROTOBUF_INTERNAL_EXPORT_header_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Header_header_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_common_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_FusionObstacleCategory_common_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_common_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_ImageParam_common_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_common_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_ObstacleObject_common_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_common_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ObstaclesAroundVehicle_common_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_common_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ParkingSlotLocation_common_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_common_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ParkingSlotPointsScore_common_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_common_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_SemanticMapInfo_common_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_fusion_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ConvergeInfo_fusion_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_fusion_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_FusionLocalObstaclesInfo_ObstaclesEntry_fusion_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_fusion_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<9> scc_info_FusionParkingSlotObject_fusion_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_fusion_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_FusionParkingSlotsInfo_ParkingSlotsEntry_fusion_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_fusion_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_LandMarkUncertainty_fusion_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_fusion_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<4> scc_info_SlotObserveMessage_fusion_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_geometry_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Line_geometry_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_geometry_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Point2Df_geometry_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_geometry_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Polygon_geometry_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_geometry_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Pose_geometry_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_odometry_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Odometry_odometry_2eproto;
 namespace davinci_adas {
@@ -56,6 +60,18 @@ class FusionParkingSlotsInfoDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<FusionParkingSlotsInfo> _instance;
 } _FusionParkingSlotsInfo_default_instance_;
+class FusionLocalObstaclesInfo_ObstaclesEntryDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<FusionLocalObstaclesInfo_ObstaclesEntry> _instance;
+} _FusionLocalObstaclesInfo_ObstaclesEntry_default_instance_;
+class FusionLocalObstaclesInfoDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<FusionLocalObstaclesInfo> _instance;
+} _FusionLocalObstaclesInfo_default_instance_;
+class FusionLocalSemanticMapInfoDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<FusionLocalSemanticMapInfo> _instance;
+} _FusionLocalSemanticMapInfo_default_instance_;
 }  // namespace fusion
 }  // namespace apa
 }  // namespace davinci_adas
@@ -71,6 +87,56 @@ static void InitDefaultsscc_info_ConvergeInfo_fusion_2eproto() {
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ConvergeInfo_fusion_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_ConvergeInfo_fusion_2eproto}, {}};
+
+static void InitDefaultsscc_info_FusionLocalObstaclesInfo_fusion_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::davinci_adas::apa::fusion::_FusionLocalObstaclesInfo_default_instance_;
+    new (ptr) ::davinci_adas::apa::fusion::FusionLocalObstaclesInfo();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<3> scc_info_FusionLocalObstaclesInfo_fusion_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 3, 0, InitDefaultsscc_info_FusionLocalObstaclesInfo_fusion_2eproto}, {
+      &scc_info_Header_header_2eproto.base,
+      &scc_info_FusionLocalObstaclesInfo_ObstaclesEntry_fusion_2eproto.base,
+      &scc_info_Odometry_odometry_2eproto.base,}};
+
+static void InitDefaultsscc_info_FusionLocalObstaclesInfo_ObstaclesEntry_fusion_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::davinci_adas::apa::fusion::_FusionLocalObstaclesInfo_ObstaclesEntry_default_instance_;
+    new (ptr) ::davinci_adas::apa::fusion::FusionLocalObstaclesInfo_ObstaclesEntry();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_FusionLocalObstaclesInfo_ObstaclesEntry_fusion_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_FusionLocalObstaclesInfo_ObstaclesEntry_fusion_2eproto}, {
+      &scc_info_ObstacleObject_common_2eproto.base,}};
+
+static void InitDefaultsscc_info_FusionLocalSemanticMapInfo_fusion_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::davinci_adas::apa::fusion::_FusionLocalSemanticMapInfo_default_instance_;
+    new (ptr) ::davinci_adas::apa::fusion::FusionLocalSemanticMapInfo();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<7> scc_info_FusionLocalSemanticMapInfo_fusion_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 7, 0, InitDefaultsscc_info_FusionLocalSemanticMapInfo_fusion_2eproto}, {
+      &scc_info_Header_header_2eproto.base,
+      &scc_info_SemanticMapInfo_common_2eproto.base,
+      &scc_info_Odometry_odometry_2eproto.base,
+      &scc_info_ImageParam_common_2eproto.base,
+      &scc_info_ParkingSlotLocation_common_2eproto.base,
+      &scc_info_Line_geometry_2eproto.base,
+      &scc_info_Polygon_geometry_2eproto.base,}};
 
 static void InitDefaultsscc_info_FusionParkingSlotObject_fusion_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -154,7 +220,7 @@ static void InitDefaultsscc_info_SlotObserveMessage_fusion_2eproto() {
       &scc_info_ParkingSlotPointsScore_common_2eproto.base,
       &scc_info_LandMarkUncertainty_fusion_2eproto.base,}};
 
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_fusion_2eproto[6];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_fusion_2eproto[9];
 static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_fusion_2eproto[6];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_fusion_2eproto = nullptr;
 
@@ -311,6 +377,51 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_fusion_2eproto::offsets[] PROT
   ~0u,
   1,
   2,
+  PROTOBUF_FIELD_OFFSET(::davinci_adas::apa::fusion::FusionLocalObstaclesInfo_ObstaclesEntry, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::davinci_adas::apa::fusion::FusionLocalObstaclesInfo_ObstaclesEntry, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::davinci_adas::apa::fusion::FusionLocalObstaclesInfo_ObstaclesEntry, key_),
+  PROTOBUF_FIELD_OFFSET(::davinci_adas::apa::fusion::FusionLocalObstaclesInfo_ObstaclesEntry, value_),
+  1,
+  0,
+  PROTOBUF_FIELD_OFFSET(::davinci_adas::apa::fusion::FusionLocalObstaclesInfo, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::davinci_adas::apa::fusion::FusionLocalObstaclesInfo, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::davinci_adas::apa::fusion::FusionLocalObstaclesInfo, header_),
+  PROTOBUF_FIELD_OFFSET(::davinci_adas::apa::fusion::FusionLocalObstaclesInfo, obstacles_),
+  PROTOBUF_FIELD_OFFSET(::davinci_adas::apa::fusion::FusionLocalObstaclesInfo, odom_),
+  PROTOBUF_FIELD_OFFSET(::davinci_adas::apa::fusion::FusionLocalObstaclesInfo, msg_status_),
+  0,
+  ~0u,
+  1,
+  2,
+  PROTOBUF_FIELD_OFFSET(::davinci_adas::apa::fusion::FusionLocalSemanticMapInfo, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::davinci_adas::apa::fusion::FusionLocalSemanticMapInfo, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::davinci_adas::apa::fusion::FusionLocalSemanticMapInfo, header_),
+  PROTOBUF_FIELD_OFFSET(::davinci_adas::apa::fusion::FusionLocalSemanticMapInfo, occupied_grid_map_),
+  PROTOBUF_FIELD_OFFSET(::davinci_adas::apa::fusion::FusionLocalSemanticMapInfo, odom_),
+  PROTOBUF_FIELD_OFFSET(::davinci_adas::apa::fusion::FusionLocalSemanticMapInfo, map2car_param_),
+  PROTOBUF_FIELD_OFFSET(::davinci_adas::apa::fusion::FusionLocalSemanticMapInfo, map2slot_param_),
+  PROTOBUF_FIELD_OFFSET(::davinci_adas::apa::fusion::FusionLocalSemanticMapInfo, slot_origin_in_map_),
+  PROTOBUF_FIELD_OFFSET(::davinci_adas::apa::fusion::FusionLocalSemanticMapInfo, msg_status_),
+  PROTOBUF_FIELD_OFFSET(::davinci_adas::apa::fusion::FusionLocalSemanticMapInfo, scanned_area_bound_),
+  PROTOBUF_FIELD_OFFSET(::davinci_adas::apa::fusion::FusionLocalSemanticMapInfo, scanned_area_),
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  7,
+  6,
+  ~0u,
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, 8, sizeof(::davinci_adas::apa::fusion::LandMarkUncertainty)},
@@ -319,6 +430,9 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 51, 93, sizeof(::davinci_adas::apa::fusion::FusionParkingSlotObject)},
   { 130, 137, sizeof(::davinci_adas::apa::fusion::FusionParkingSlotsInfo_ParkingSlotsEntry)},
   { 139, 148, sizeof(::davinci_adas::apa::fusion::FusionParkingSlotsInfo)},
+  { 152, 159, sizeof(::davinci_adas::apa::fusion::FusionLocalObstaclesInfo_ObstaclesEntry)},
+  { 161, 170, sizeof(::davinci_adas::apa::fusion::FusionLocalObstaclesInfo)},
+  { 174, 188, sizeof(::davinci_adas::apa::fusion::FusionLocalSemanticMapInfo)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -328,6 +442,9 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::davinci_adas::apa::fusion::_FusionParkingSlotObject_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::davinci_adas::apa::fusion::_FusionParkingSlotsInfo_ParkingSlotsEntry_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::davinci_adas::apa::fusion::_FusionParkingSlotsInfo_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::davinci_adas::apa::fusion::_FusionLocalObstaclesInfo_ObstaclesEntry_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::davinci_adas::apa::fusion::_FusionLocalObstaclesInfo_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::davinci_adas::apa::fusion::_FusionLocalSemanticMapInfo_default_instance_),
 };
 
 const char descriptor_table_protodef_fusion_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -414,173 +531,196 @@ const char descriptor_table_protodef_fusion_2eproto[] PROTOBUF_SECTION_VARIABLE(
   "\nmsg_status\030\004 \001(\0162&.davinci_adas.apa.fus"
   "ion.MessageStatus\032a\n\021ParkingSlotsEntry\022\013"
   "\n\003key\030\001 \001(\r\022\?\n\005value\030\002 \001(\01320.davinci_ada"
-  "s.apa.fusion.FusionParkingSlotObject*\306,\n"
-  "\rMessageStatus\022\016\n\nMESSAGE_OK\020\000\022\024\n\020MESSAG"
-  "E_ABNORMAL\020\001\022\023\n\017MESSAGE_UNKNOWN\020\002\022\036\n\031MES"
-  "SAGE_APA_PERCEPTION_OK\020\350\007\022\"\n\035MESSAGE_APA"
-  "_PERCEPTION_FAILED\020\351\007\022\'\n\"MESSAGE_APA_PER"
-  "CEPTION_INIT_FAILED\020\314\010\022,\n\'MESSAGE_APA_PE"
-  "RCEPTION_INPUT_DATA_ERROR\020\315\010\0221\n,MESSAGE_"
-  "APA_PERCEPTION_PARAMETER_LOAD_FAILED\020\316\010\022"
-  ")\n$MESSAGE_APA_PERCEPTION_NO_INPUT_DATA\020"
-  "\260\t\022,\n\'MESSAGE_APA_PERCEPTION_IMAGE_DECOD"
-  "E_ERR\020\261\t\022*\n%MESSAGE_APA_PERCEPTION_SYS_N"
-  "OT_ACTIVE\020\262\t\022(\n#MESSAGE_APA_PERCEPTION_F"
-  "REESPACE_OK\020\270\027\022.\n)MESSAGE_APA_PERCEPTION"
-  "_FREESPACE_ABNORMAL\020\271\027\022-\n(MESSAGE_APA_PE"
-  "RCEPTION_FREESPACE_UNKNOWN\020\272\027\022+\n&MESSAGE"
-  "_APA_PERCEPTION_PARKING_SLOT_OK\020\240\037\0221\n,ME"
-  "SSAGE_APA_PERCEPTION_PARKING_SLOT_ABNORM"
-  "AL\020\241\037\0220\n+MESSAGE_APA_PERCEPTION_PARKING_"
-  "SLOT_UNKNOWN\020\242\037\022 \n\033MESSAGE_ULTRASONIC_RA"
-  "DAR_OK\020\210\'\022&\n!MESSAGE_ULTRASONIC_RADAR_AB"
-  "NORMAL\020\211\'\022%\n MESSAGE_ULTRASONIC_RADAR_UN"
-  "KNOWN\020\212\'\022\'\n\"MESSAGE_ULTRASONIC_SYS_INIT_"
-  "FAILED\020\213\'\022&\n!MESSAGE_ULTRASONIC_SYS_NOT_"
-  "ACTIVE\020\214\'\022$\n\037MESSAGE_ULTRASONIC_PAS_ABNO"
-  "RMAL\020\354\'\022+\n&MESSAGE_ULTRASONIC_FLS_SENSOR"
-  "_ABNORMAL\020\355\'\022*\n%MESSAGE_ULTRASONIC_FL_SE"
-  "NSOR_ABNORMAL\020\356\'\022+\n&MESSAGE_ULTRASONIC_F"
-  "LM_SENSOR_ABNORMAL\020\357\'\022+\n&MESSAGE_ULTRASO"
-  "NIC_FRM_SENSOR_ABNORMAL\020\360\'\022*\n%MESSAGE_UL"
-  "TRASONIC_FR_SENSOR_ABNORMAL\020\361\'\022+\n&MESSAG"
-  "E_ULTRASONIC_FRS_SENSOR_ABNORMAL\020\362\'\022+\n&M"
-  "ESSAGE_ULTRASONIC_RLS_SENSOR_ABNORMAL\020\363\'"
-  "\022*\n%MESSAGE_ULTRASONIC_RL_SENSOR_ABNORMA"
-  "L\020\364\'\022+\n&MESSAGE_ULTRASONIC_RLM_SENSOR_AB"
-  "NORMAL\020\365\'\022+\n&MESSAGE_ULTRASONIC_RRM_SENS"
-  "OR_ABNORMAL\020\366\'\022*\n%MESSAGE_ULTRASONIC_RR_"
-  "SENSOR_ABNORMAL\020\367\'\022+\n&MESSAGE_ULTRASONIC"
-  "_RRS_SENSOR_ABNORMAL\020\370\'\022*\n%MESSAGE_ULTRA"
-  "SONIC_DATA_SYNC_ABNORMAL\020\320(\022-\n(MESSAGE_U"
-  "LTRASONIC_DATA_SYNC_INIT_FAILED\020\321(\0222\n-ME"
-  "SSAGE_ULTRASONIC_DATA_SYNC_OBS_GROUP_FAI"
-  "LED\020\322(\0226\n1MESSAGE_ULTRASONIC_DATA_SYNC_U"
-  "LTR_RAW_DATA_FAILED\020\323(\022,\n\'MESSAGE_ULTRAS"
-  "ONIC_DATA_SYNC_ODM_FAILED\020\324(\022(\n#MESSAGE_"
-  "ULTRASONIC_OBS_MAP_ABNORMAL\020\264)\022+\n&MESSAG"
-  "E_ULTRASONIC_OBS_MAP_INIT_FAILED\020\265)\022,\n\'M"
-  "ESSAGE_ULTRASONIC_OBS_CORRECTED_FAILED\020\266"
-  ")\022*\n%MESSAGE_ULTRASONIC_OBS_CLUSTER_FAIL"
-  "ED\020\267)\022(\n#MESSAGE_ULTRASONIC_OBS_MATCH_FA"
-  "ILED\020\270)\022*\n%MESSAGE_ULTRASONIC_OBS_CONTOU"
-  "R_FAILED\020\271)\022)\n$MESSAGE_ULTRASONIC_OBS_FU"
-  "SION_FAILED\020\272)\022*\n%MESSAGE_ULTRASONIC_OBS"
-  "_GROUP_ABNORMAL\020\230*\022-\n(MESSAGE_ULTRASONIC"
-  "_OBS_GROUP_INIT_FAILED\020\231*\022(\n#MESSAGE_ULT"
-  "RASONIC_OBS_GROUP_FAILED\020\232*\022%\n MESSAGE_U"
-  "LTRASONIC_SLOT_ABNORMAL\020\374*\022(\n#MESSAGE_UL"
-  "TRASONIC_SLOT_INIT_FAILED\020\375*\022#\n\036MESSAGE_"
-  "ULTRASONIC_SLOT_FAILED\020\376*\022/\n*MESSAGE_ULT"
-  "RASONIC_SLOT_VEH_SPEED_ABNORMAL\020\377*\022.\n)ME"
-  "SSAGE_ULTRASONIC_SLOT_SIDE_DIS_ABNORMAL\020"
-  "\200+\022*\n%MESSAGE_ULTRASONIC_SLOT_CORNER_FAI"
-  "LED\020\201+\022*\n%MESSAGE_ULTRASONIC_SLOT_LENGTH"
-  "_FAILED\020\202+\022*\n%MESSAGE_ULTRASONIC_SLOT_DE"
-  "EPTH_FAILED\020\203+\022\030\n\023MESSAGE_ODOMETRY_OK\020\360."
-  "\022\036\n\031MESSAGE_ODOMETRY_ABNORMAL\020\361.\022\035\n\030MESS"
-  "AGE_ODOMETRY_UNKNOWN\020\362.\022\026\n\021MESSAGE_FUSIO"
-  "N_OK\020\3306\022\034\n\027MESSAGE_FUSION_ABNORMAL\020\3316\022#\n"
-  "\036MESSAGE_FUSION_SYS_INIT_FAILED\020\3326\022%\n ME"
-  "SSAGE_FUSION_SYS_IN_RESET_MODE\020\3336\022\"\n\035MES"
-  "SAGE_FUSION_SYS_NOT_ACTIVE\020\3346\022&\n!MESSAGE"
-  "_FUSION_SYNC_DATA_ABNORMAL\020\2747\022)\n$MESSAGE"
-  "_FUSION_SYNC_DATA_INIT_FAILED\020\2757\022\'\n\"MESS"
-  "AGE_FUSION_SLOT_TRACK_ABNORMAL\020\2408\022*\n%MES"
-  "SAGE_FUSION_SLOT_TRACK_INIT_FAILED\020\2418\022%\n"
-  " MESSAGE_FUSION_SLOT_TRACK_FAILED\020\2428\022(\n#"
-  "MESSAGE_FUSION_SLOT_FUSION_ABNORMAL\020\2049\022+"
-  "\n&MESSAGE_FUSION_SLOT_FUSION_INIT_FAILED"
-  "\020\2059\022&\n!MESSAGE_FUSION_SLOT_FUSION_FAILED"
-  "\020\2069\022,\n\'MESSAGE_FUSION_SLOT_FUSION_MATCH_"
-  "FAILED\020\2079\0221\n,MESSAGE_FUSION_SLOT_FUSION_"
-  "INPUT_IMG_INVALID\020\2109\0224\n/MESSAGE_FUSION_S"
-  "LOT_FUSION_PARKINTO_INIT_FAILED\020\2119\0228\n3ME"
-  "SSAGE_FUSION_SLOT_FUSION_PARKINTO_END_PO"
-  "SE_FAILED\020\2129\022/\n*MESSAGE_FUSION_SLOT_FUSI"
-  "ON_OCCUPIED_FAILED\020\2139\022;\n6MESSAGE_FUSION_"
-  "SLOT_FUSION_PARKINTO_INPUT_SLOT_INVALID\020"
-  "\2149\0225\n0MESSAGE_FUSION_SLOT_FUSION_ID_PERC"
-  "EPTTYPE_FAILED\020\2159\0221\n,MESSAGE_FUSION_SLOT"
-  "_FUSION_JUDGE_TYPE_FAILED\020\2169\022;\n6MESSAGE_"
-  "FUSION_SLOT_FUSION_SLOT_LOCATION_MANAGE_"
-  "FAILED\020\2179\0229\n4MESSAGE_FUSION_SLOT_FUSION_"
-  "GET_PHISYCAL_BOUND_FAILED\020\2209\0226\n1MESSAGE_"
-  "FUSION_SLOT_FUSION_JUDGE_PARK_MODE_FAILE"
-  "D\020\2219\0224\n/MESSAGE_FUSION_SLOT_FUSION_PARK_"
-  "END_SLOT_FAILED\020\2229\0221\n,MESSAGE_FUSION_SLO"
-  "T_FUSION_INPUT_MAP_INVALID\020\2239\022*\n%MESSAGE"
-  "_FUSION_SLOT_FUSION_OCR_FAILED\020\2249\022/\n*MES"
-  "SAGE_FUSION_SLOT_FUSION_END_SLOT_FAILED\020"
-  "\2259\0226\n1MESSAGE_FUSION_SLOT_FUSION_CORRIDO"
-  "R_ACROSS_FAILED\020\2269\0224\n/MESSAGE_FUSION_SLO"
-  "T_FUSION_PARKOUT_FRONT_NO_OBS\020\2279\022;\n6MESS"
-  "AGE_FUSION_SLOT_FUSION_PARKOUT_LENGTH_NA"
-  "RROW_SPACE\020\2309\022:\n5MESSAGE_FUSION_SLOT_FUS"
-  "ION_PARKOUT_WIDTH_NARROW_SPACE\020\2319\0220\n+MES"
-  "SAGE_FUSION_SLOT_FUSION_SLOT_LIFE_FAILED"
-  "\020\2329\0226\n1MESSAGE_FUSION_SLOT_FUSION_RECOMM"
-  "END_ORDER_FAILED\020\2339\0223\n.MESSAGE_FUSION_SL"
-  "OT_FUSION_STOPPER_TYPE_FAILED\020\2349\0224\n/MESS"
-  "AGE_FUSION_SLOT_FUSION_RELEASE_SPACE_FAI"
-  "LED\020\2359\022)\n$MESSAGE_FUSION_SEMANTIC_MAP_AB"
-  "NORMAL\020\3509\022,\n\'MESSAGE_FUSION_SEMANTIC_MAP"
-  "_INIT_FAILED\020\3519\0221\n,MESSAGE_FUSION_SEMANT"
-  "IC_MAP_SERIALIZE_FAILED\020\3529\022,\n\'MESSAGE_FU"
-  "SION_OBSTACLE_FUSION_ABNORMAL\020\314:\022/\n*MESS"
-  "AGE_FUSION_OBSTACLE_FUSION_INIT_FAILED\020\315"
-  ":\022*\n%MESSAGE_FUSION_OBSTACLE_MODULE_FAIL"
-  "ED\020\316:\0220\n+MESSAGE_FUSION_OBSTACLE_FUSION_"
-  "MATCH_FAILED\020\317:\0220\n+MESSAGE_FUSION_OBSTAC"
-  "LE_GET_CONTOURS_FAILED\020\320:\022*\n%MESSAGE_FUS"
-  "ION_OBSTACLE_UPDATE_FAILED\020\322:\022*\n%MESSAGE"
-  "_FUSION_OBSTACLE_MANAGE_FAILED\020\323:\022/\n*MES"
-  "SAGE_FUSION_OBSTACLE_INVALID_FUSION_MAP\020"
-  "\324:\022-\n(MESSAGE_FUSION_OBSTACLE_GET_CACHE_"
-  "FAILED\020\325:\022(\n#MESSAGE_FUSION_APP_REQUEST_"
-  "ABNORMAL\020\260;\022-\n(MESSAGE_FUSION_APP_REQUES"
-  "T_TIME_ABNORMAL\020\261;\0221\n,MESSAGE_FUSION_APP"
-  "_REQUEST_NO_NEED_TO_SWITCH\020\262;\0220\n+MESSAGE"
-  "_FUSION_APP_REQUEST_CHECK_MCU_FAILED\020\263;\022"
-  "1\n,MESSAGE_FUSION_APP_REQUEST_NO_TARGET_"
-  "SLOT_ID\020\264;\0226\n1MESSAGE_FUSION_APP_REQUEST"
-  "_INVALID_TARGET_SLOT_ID\020\265;\022,\n\'MESSAGE_FU"
-  "SION_APP_REQUEST_TO_TERMINATE\020\266;\0225\n0MESS"
-  "AGE_FUSION_APP_REQUEST_WORK_MODE_NOT_SUP"
-  "PORT\020\267;\022:\n5MESSAGE_FUSION_APP_REQUEST_RU"
-  "NNING_STATUS_NOT_SUPPORT\020\270;\0223\n.MESSAGE_F"
-  "USION_APP_REQUEST_WORK_MODE_NOT_MATCH\020\271;"
-  "\022!\n\034MESSAGE_PNC_PATH_PLAN_FAILED\020\301>\022%\n M"
-  "ESSAGE_PNC_OBSTACLE_INTERRUPTED\020\302>\022!\n\034ME"
-  "SSAGE_PNC_OBSTACLE_REMOVED\020\303>\022\"\n\035MESSAGE"
-  "_PNC_PARKING_COMPLETED\020\304>\022\"\n\035MESSAGE_PNC"
-  "_PATH_PLAN_SUCCESS\020\305>\022)\n$MESSAGE_PNC_REQ"
-  "UESTED_SLOT_NOT_EXIST\020\306>\022+\n&MESSAGE_PNC_"
-  "TARGET_SLOT_DIFF_TOO_LARGE\020\307>\022\036\n\031MESSAGE"
-  "_PNC_ODOM_ABNORMAL\020\310>*\216\001\n\017ParkingSlotTyp"
-  "e\022\034\n\030PARKING_SLOT_TYPE_UNKOWN\020\000\022\036\n\032PARKI"
-  "NG_SLOT_TYPE_PARALLEL\020\001\022\036\n\032PARKING_SLOT_"
-  "TYPE_VERTICAL\020\002\022\035\n\031PARKING_SLOT_TYPE_OBL"
-  "IQUE\020\003*\326\001\n\rParkingToSide\022\031\n\014PARK_TO_LEFT"
-  "\020\377\377\377\377\377\377\377\377\377\001\022\022\n\016PARK_TO_UNKNOW\020\000\022\021\n\rPARK_"
-  "TO_RIGHT\020\001\022\021\n\rPARK_TO_FRONT\020\002\022\020\n\014PARK_TO"
-  "_REAR\020\003\022\026\n\022PARK_TO_FRONT_LEFT\020\004\022\027\n\023PARK_"
-  "TO_FRONT_RIGHT\020\005\022\025\n\021PARK_TO_REAR_LEFT\020\006\022"
-  "\026\n\022PARK_TO_REAR_RIGHT\020\007*\342\002\n\013ParkingMode\022"
-  "\024\n\020PARK_MODE_UNKOWN\020\000\022\033\n\027PARK_INTO_PARAL"
-  "LEL_SLOT\020\001\022 \n\034PARK_TAIL_INTO_VERTICAL_SL"
-  "OT\020\002\022\037\n\033PARK_HEAD_INTO_OBLIQUE_SLOT\020\003\022\037\n"
-  "\033PARK_TAIL_INTO_OBLIQUE_SLOT\020\004\022\034\n\030PARK_O"
-  "UTOF_PARALLEL_SLOT\020\005\022\037\n\033REMOTE_MOVE_VEHI"
-  "CLE_FARWARD\020\006\022 \n\034REMOTE_MOVE_VEHICLE_BAC"
-  "KWARD\020\007\022 \n\034PARK_HEAD_INTO_VERTICAL_SLOT\020"
-  "\010\022\034\n\030PARK_OUTOF_VERTICAL_SLOT\020\t\022\033\n\027PARK_"
-  "OUTOF_OBLIQUE_SLOT\020\n*q\n\016SlotInsideType\022\026"
-  "\n\022SLOT_INSIDE_UNKOWN\020\000\022\027\n\023SLOT_NOTHING_I"
-  "NSIDE\020\001\022\024\n\020SLOT_WALL_INSIDE\020\002\022\030\n\024SLOT_RO"
-  "ADEDGE_INSIDE\020\003*\\\n\020PerceptionSource\022\017\n\013F"
-  "ROM_CAMERA\020\000\022\022\n\016FROM_USS_SPACE\020\001\022\022\n\016FROM"
-  "_FREESPACE\020\002\022\017\n\013FROM_SELECT\020\003"
+  "s.apa.fusion.FusionParkingSlotObject\"\334\002\n"
+  "\030FusionLocalObstaclesInfo\022%\n\006header\030\001 \001("
+  "\0132\025.apollo.common.Header\022S\n\tobstacles\030\002 "
+  "\003(\0132@.davinci_adas.apa.fusion.FusionLoca"
+  "lObstaclesInfo.ObstaclesEntry\0221\n\004odom\030\003 "
+  "\001(\0132#.davinci_adas.apa.odometry.Odometry"
+  "\022:\n\nmsg_status\030\004 \001(\0162&.davinci_adas.apa."
+  "fusion.MessageStatus\032U\n\016ObstaclesEntry\022\013"
+  "\n\003key\030\001 \001(\r\0226\n\005value\030\002 \001(\0132\'.davinci_ada"
+  "s.apa.common.ObstacleObject\"\261\004\n\032FusionLo"
+  "calSemanticMapInfo\022%\n\006header\030\001 \001(\0132\025.apo"
+  "llo.common.Header\022C\n\021occupied_grid_map\030\002"
+  " \001(\0132(.davinci_adas.apa.common.SemanticM"
+  "apInfo\0221\n\004odom\030\004 \001(\0132#.davinci_adas.apa."
+  "odometry.Odometry\022:\n\rmap2car_param\030\005 \001(\013"
+  "2#.davinci_adas.apa.common.ImageParam\022;\n"
+  "\016map2slot_param\030\006 \001(\0132#.davinci_adas.apa"
+  ".common.ImageParam\022H\n\022slot_origin_in_map"
+  "\030\007 \001(\0132,.davinci_adas.apa.common.Parking"
+  "SlotLocation\022:\n\nmsg_status\030\010 \001(\0162&.davin"
+  "ci_adas.apa.fusion.MessageStatus\022;\n\022scan"
+  "ned_area_bound\030\t \001(\0132\037.davinci_adas.apa."
+  "geometry.Line\0228\n\014scanned_area\030\n \003(\0132\".da"
+  "vinci_adas.apa.geometry.Polygon*\306,\n\rMess"
+  "ageStatus\022\016\n\nMESSAGE_OK\020\000\022\024\n\020MESSAGE_ABN"
+  "ORMAL\020\001\022\023\n\017MESSAGE_UNKNOWN\020\002\022\036\n\031MESSAGE_"
+  "APA_PERCEPTION_OK\020\350\007\022\"\n\035MESSAGE_APA_PERC"
+  "EPTION_FAILED\020\351\007\022\'\n\"MESSAGE_APA_PERCEPTI"
+  "ON_INIT_FAILED\020\314\010\022,\n\'MESSAGE_APA_PERCEPT"
+  "ION_INPUT_DATA_ERROR\020\315\010\0221\n,MESSAGE_APA_P"
+  "ERCEPTION_PARAMETER_LOAD_FAILED\020\316\010\022)\n$ME"
+  "SSAGE_APA_PERCEPTION_NO_INPUT_DATA\020\260\t\022,\n"
+  "\'MESSAGE_APA_PERCEPTION_IMAGE_DECODE_ERR"
+  "\020\261\t\022*\n%MESSAGE_APA_PERCEPTION_SYS_NOT_AC"
+  "TIVE\020\262\t\022(\n#MESSAGE_APA_PERCEPTION_FREESP"
+  "ACE_OK\020\270\027\022.\n)MESSAGE_APA_PERCEPTION_FREE"
+  "SPACE_ABNORMAL\020\271\027\022-\n(MESSAGE_APA_PERCEPT"
+  "ION_FREESPACE_UNKNOWN\020\272\027\022+\n&MESSAGE_APA_"
+  "PERCEPTION_PARKING_SLOT_OK\020\240\037\0221\n,MESSAGE"
+  "_APA_PERCEPTION_PARKING_SLOT_ABNORMAL\020\241\037"
+  "\0220\n+MESSAGE_APA_PERCEPTION_PARKING_SLOT_"
+  "UNKNOWN\020\242\037\022 \n\033MESSAGE_ULTRASONIC_RADAR_O"
+  "K\020\210\'\022&\n!MESSAGE_ULTRASONIC_RADAR_ABNORMA"
+  "L\020\211\'\022%\n MESSAGE_ULTRASONIC_RADAR_UNKNOWN"
+  "\020\212\'\022\'\n\"MESSAGE_ULTRASONIC_SYS_INIT_FAILE"
+  "D\020\213\'\022&\n!MESSAGE_ULTRASONIC_SYS_NOT_ACTIV"
+  "E\020\214\'\022$\n\037MESSAGE_ULTRASONIC_PAS_ABNORMAL\020"
+  "\354\'\022+\n&MESSAGE_ULTRASONIC_FLS_SENSOR_ABNO"
+  "RMAL\020\355\'\022*\n%MESSAGE_ULTRASONIC_FL_SENSOR_"
+  "ABNORMAL\020\356\'\022+\n&MESSAGE_ULTRASONIC_FLM_SE"
+  "NSOR_ABNORMAL\020\357\'\022+\n&MESSAGE_ULTRASONIC_F"
+  "RM_SENSOR_ABNORMAL\020\360\'\022*\n%MESSAGE_ULTRASO"
+  "NIC_FR_SENSOR_ABNORMAL\020\361\'\022+\n&MESSAGE_ULT"
+  "RASONIC_FRS_SENSOR_ABNORMAL\020\362\'\022+\n&MESSAG"
+  "E_ULTRASONIC_RLS_SENSOR_ABNORMAL\020\363\'\022*\n%M"
+  "ESSAGE_ULTRASONIC_RL_SENSOR_ABNORMAL\020\364\'\022"
+  "+\n&MESSAGE_ULTRASONIC_RLM_SENSOR_ABNORMA"
+  "L\020\365\'\022+\n&MESSAGE_ULTRASONIC_RRM_SENSOR_AB"
+  "NORMAL\020\366\'\022*\n%MESSAGE_ULTRASONIC_RR_SENSO"
+  "R_ABNORMAL\020\367\'\022+\n&MESSAGE_ULTRASONIC_RRS_"
+  "SENSOR_ABNORMAL\020\370\'\022*\n%MESSAGE_ULTRASONIC"
+  "_DATA_SYNC_ABNORMAL\020\320(\022-\n(MESSAGE_ULTRAS"
+  "ONIC_DATA_SYNC_INIT_FAILED\020\321(\0222\n-MESSAGE"
+  "_ULTRASONIC_DATA_SYNC_OBS_GROUP_FAILED\020\322"
+  "(\0226\n1MESSAGE_ULTRASONIC_DATA_SYNC_ULTR_R"
+  "AW_DATA_FAILED\020\323(\022,\n\'MESSAGE_ULTRASONIC_"
+  "DATA_SYNC_ODM_FAILED\020\324(\022(\n#MESSAGE_ULTRA"
+  "SONIC_OBS_MAP_ABNORMAL\020\264)\022+\n&MESSAGE_ULT"
+  "RASONIC_OBS_MAP_INIT_FAILED\020\265)\022,\n\'MESSAG"
+  "E_ULTRASONIC_OBS_CORRECTED_FAILED\020\266)\022*\n%"
+  "MESSAGE_ULTRASONIC_OBS_CLUSTER_FAILED\020\267)"
+  "\022(\n#MESSAGE_ULTRASONIC_OBS_MATCH_FAILED\020"
+  "\270)\022*\n%MESSAGE_ULTRASONIC_OBS_CONTOUR_FAI"
+  "LED\020\271)\022)\n$MESSAGE_ULTRASONIC_OBS_FUSION_"
+  "FAILED\020\272)\022*\n%MESSAGE_ULTRASONIC_OBS_GROU"
+  "P_ABNORMAL\020\230*\022-\n(MESSAGE_ULTRASONIC_OBS_"
+  "GROUP_INIT_FAILED\020\231*\022(\n#MESSAGE_ULTRASON"
+  "IC_OBS_GROUP_FAILED\020\232*\022%\n MESSAGE_ULTRAS"
+  "ONIC_SLOT_ABNORMAL\020\374*\022(\n#MESSAGE_ULTRASO"
+  "NIC_SLOT_INIT_FAILED\020\375*\022#\n\036MESSAGE_ULTRA"
+  "SONIC_SLOT_FAILED\020\376*\022/\n*MESSAGE_ULTRASON"
+  "IC_SLOT_VEH_SPEED_ABNORMAL\020\377*\022.\n)MESSAGE"
+  "_ULTRASONIC_SLOT_SIDE_DIS_ABNORMAL\020\200+\022*\n"
+  "%MESSAGE_ULTRASONIC_SLOT_CORNER_FAILED\020\201"
+  "+\022*\n%MESSAGE_ULTRASONIC_SLOT_LENGTH_FAIL"
+  "ED\020\202+\022*\n%MESSAGE_ULTRASONIC_SLOT_DEEPTH_"
+  "FAILED\020\203+\022\030\n\023MESSAGE_ODOMETRY_OK\020\360.\022\036\n\031M"
+  "ESSAGE_ODOMETRY_ABNORMAL\020\361.\022\035\n\030MESSAGE_O"
+  "DOMETRY_UNKNOWN\020\362.\022\026\n\021MESSAGE_FUSION_OK\020"
+  "\3306\022\034\n\027MESSAGE_FUSION_ABNORMAL\020\3316\022#\n\036MESS"
+  "AGE_FUSION_SYS_INIT_FAILED\020\3326\022%\n MESSAGE"
+  "_FUSION_SYS_IN_RESET_MODE\020\3336\022\"\n\035MESSAGE_"
+  "FUSION_SYS_NOT_ACTIVE\020\3346\022&\n!MESSAGE_FUSI"
+  "ON_SYNC_DATA_ABNORMAL\020\2747\022)\n$MESSAGE_FUSI"
+  "ON_SYNC_DATA_INIT_FAILED\020\2757\022\'\n\"MESSAGE_F"
+  "USION_SLOT_TRACK_ABNORMAL\020\2408\022*\n%MESSAGE_"
+  "FUSION_SLOT_TRACK_INIT_FAILED\020\2418\022%\n MESS"
+  "AGE_FUSION_SLOT_TRACK_FAILED\020\2428\022(\n#MESSA"
+  "GE_FUSION_SLOT_FUSION_ABNORMAL\020\2049\022+\n&MES"
+  "SAGE_FUSION_SLOT_FUSION_INIT_FAILED\020\2059\022&"
+  "\n!MESSAGE_FUSION_SLOT_FUSION_FAILED\020\2069\022,"
+  "\n\'MESSAGE_FUSION_SLOT_FUSION_MATCH_FAILE"
+  "D\020\2079\0221\n,MESSAGE_FUSION_SLOT_FUSION_INPUT"
+  "_IMG_INVALID\020\2109\0224\n/MESSAGE_FUSION_SLOT_F"
+  "USION_PARKINTO_INIT_FAILED\020\2119\0228\n3MESSAGE"
+  "_FUSION_SLOT_FUSION_PARKINTO_END_POSE_FA"
+  "ILED\020\2129\022/\n*MESSAGE_FUSION_SLOT_FUSION_OC"
+  "CUPIED_FAILED\020\2139\022;\n6MESSAGE_FUSION_SLOT_"
+  "FUSION_PARKINTO_INPUT_SLOT_INVALID\020\2149\0225\n"
+  "0MESSAGE_FUSION_SLOT_FUSION_ID_PERCEPTTY"
+  "PE_FAILED\020\2159\0221\n,MESSAGE_FUSION_SLOT_FUSI"
+  "ON_JUDGE_TYPE_FAILED\020\2169\022;\n6MESSAGE_FUSIO"
+  "N_SLOT_FUSION_SLOT_LOCATION_MANAGE_FAILE"
+  "D\020\2179\0229\n4MESSAGE_FUSION_SLOT_FUSION_GET_P"
+  "HISYCAL_BOUND_FAILED\020\2209\0226\n1MESSAGE_FUSIO"
+  "N_SLOT_FUSION_JUDGE_PARK_MODE_FAILED\020\2219\022"
+  "4\n/MESSAGE_FUSION_SLOT_FUSION_PARK_END_S"
+  "LOT_FAILED\020\2229\0221\n,MESSAGE_FUSION_SLOT_FUS"
+  "ION_INPUT_MAP_INVALID\020\2239\022*\n%MESSAGE_FUSI"
+  "ON_SLOT_FUSION_OCR_FAILED\020\2249\022/\n*MESSAGE_"
+  "FUSION_SLOT_FUSION_END_SLOT_FAILED\020\2259\0226\n"
+  "1MESSAGE_FUSION_SLOT_FUSION_CORRIDOR_ACR"
+  "OSS_FAILED\020\2269\0224\n/MESSAGE_FUSION_SLOT_FUS"
+  "ION_PARKOUT_FRONT_NO_OBS\020\2279\022;\n6MESSAGE_F"
+  "USION_SLOT_FUSION_PARKOUT_LENGTH_NARROW_"
+  "SPACE\020\2309\022:\n5MESSAGE_FUSION_SLOT_FUSION_P"
+  "ARKOUT_WIDTH_NARROW_SPACE\020\2319\0220\n+MESSAGE_"
+  "FUSION_SLOT_FUSION_SLOT_LIFE_FAILED\020\2329\0226"
+  "\n1MESSAGE_FUSION_SLOT_FUSION_RECOMMEND_O"
+  "RDER_FAILED\020\2339\0223\n.MESSAGE_FUSION_SLOT_FU"
+  "SION_STOPPER_TYPE_FAILED\020\2349\0224\n/MESSAGE_F"
+  "USION_SLOT_FUSION_RELEASE_SPACE_FAILED\020\235"
+  "9\022)\n$MESSAGE_FUSION_SEMANTIC_MAP_ABNORMA"
+  "L\020\3509\022,\n\'MESSAGE_FUSION_SEMANTIC_MAP_INIT"
+  "_FAILED\020\3519\0221\n,MESSAGE_FUSION_SEMANTIC_MA"
+  "P_SERIALIZE_FAILED\020\3529\022,\n\'MESSAGE_FUSION_"
+  "OBSTACLE_FUSION_ABNORMAL\020\314:\022/\n*MESSAGE_F"
+  "USION_OBSTACLE_FUSION_INIT_FAILED\020\315:\022*\n%"
+  "MESSAGE_FUSION_OBSTACLE_MODULE_FAILED\020\316:"
+  "\0220\n+MESSAGE_FUSION_OBSTACLE_FUSION_MATCH"
+  "_FAILED\020\317:\0220\n+MESSAGE_FUSION_OBSTACLE_GE"
+  "T_CONTOURS_FAILED\020\320:\022*\n%MESSAGE_FUSION_O"
+  "BSTACLE_UPDATE_FAILED\020\322:\022*\n%MESSAGE_FUSI"
+  "ON_OBSTACLE_MANAGE_FAILED\020\323:\022/\n*MESSAGE_"
+  "FUSION_OBSTACLE_INVALID_FUSION_MAP\020\324:\022-\n"
+  "(MESSAGE_FUSION_OBSTACLE_GET_CACHE_FAILE"
+  "D\020\325:\022(\n#MESSAGE_FUSION_APP_REQUEST_ABNOR"
+  "MAL\020\260;\022-\n(MESSAGE_FUSION_APP_REQUEST_TIM"
+  "E_ABNORMAL\020\261;\0221\n,MESSAGE_FUSION_APP_REQU"
+  "EST_NO_NEED_TO_SWITCH\020\262;\0220\n+MESSAGE_FUSI"
+  "ON_APP_REQUEST_CHECK_MCU_FAILED\020\263;\0221\n,ME"
+  "SSAGE_FUSION_APP_REQUEST_NO_TARGET_SLOT_"
+  "ID\020\264;\0226\n1MESSAGE_FUSION_APP_REQUEST_INVA"
+  "LID_TARGET_SLOT_ID\020\265;\022,\n\'MESSAGE_FUSION_"
+  "APP_REQUEST_TO_TERMINATE\020\266;\0225\n0MESSAGE_F"
+  "USION_APP_REQUEST_WORK_MODE_NOT_SUPPORT\020"
+  "\267;\022:\n5MESSAGE_FUSION_APP_REQUEST_RUNNING"
+  "_STATUS_NOT_SUPPORT\020\270;\0223\n.MESSAGE_FUSION"
+  "_APP_REQUEST_WORK_MODE_NOT_MATCH\020\271;\022!\n\034M"
+  "ESSAGE_PNC_PATH_PLAN_FAILED\020\301>\022%\n MESSAG"
+  "E_PNC_OBSTACLE_INTERRUPTED\020\302>\022!\n\034MESSAGE"
+  "_PNC_OBSTACLE_REMOVED\020\303>\022\"\n\035MESSAGE_PNC_"
+  "PARKING_COMPLETED\020\304>\022\"\n\035MESSAGE_PNC_PATH"
+  "_PLAN_SUCCESS\020\305>\022)\n$MESSAGE_PNC_REQUESTE"
+  "D_SLOT_NOT_EXIST\020\306>\022+\n&MESSAGE_PNC_TARGE"
+  "T_SLOT_DIFF_TOO_LARGE\020\307>\022\036\n\031MESSAGE_PNC_"
+  "ODOM_ABNORMAL\020\310>*\216\001\n\017ParkingSlotType\022\034\n\030"
+  "PARKING_SLOT_TYPE_UNKOWN\020\000\022\036\n\032PARKING_SL"
+  "OT_TYPE_PARALLEL\020\001\022\036\n\032PARKING_SLOT_TYPE_"
+  "VERTICAL\020\002\022\035\n\031PARKING_SLOT_TYPE_OBLIQUE\020"
+  "\003*\326\001\n\rParkingToSide\022\031\n\014PARK_TO_LEFT\020\377\377\377\377"
+  "\377\377\377\377\377\001\022\022\n\016PARK_TO_UNKNOW\020\000\022\021\n\rPARK_TO_RI"
+  "GHT\020\001\022\021\n\rPARK_TO_FRONT\020\002\022\020\n\014PARK_TO_REAR"
+  "\020\003\022\026\n\022PARK_TO_FRONT_LEFT\020\004\022\027\n\023PARK_TO_FR"
+  "ONT_RIGHT\020\005\022\025\n\021PARK_TO_REAR_LEFT\020\006\022\026\n\022PA"
+  "RK_TO_REAR_RIGHT\020\007*\342\002\n\013ParkingMode\022\024\n\020PA"
+  "RK_MODE_UNKOWN\020\000\022\033\n\027PARK_INTO_PARALLEL_S"
+  "LOT\020\001\022 \n\034PARK_TAIL_INTO_VERTICAL_SLOT\020\002\022"
+  "\037\n\033PARK_HEAD_INTO_OBLIQUE_SLOT\020\003\022\037\n\033PARK"
+  "_TAIL_INTO_OBLIQUE_SLOT\020\004\022\034\n\030PARK_OUTOF_"
+  "PARALLEL_SLOT\020\005\022\037\n\033REMOTE_MOVE_VEHICLE_F"
+  "ARWARD\020\006\022 \n\034REMOTE_MOVE_VEHICLE_BACKWARD"
+  "\020\007\022 \n\034PARK_HEAD_INTO_VERTICAL_SLOT\020\010\022\034\n\030"
+  "PARK_OUTOF_VERTICAL_SLOT\020\t\022\033\n\027PARK_OUTOF"
+  "_OBLIQUE_SLOT\020\n*q\n\016SlotInsideType\022\026\n\022SLO"
+  "T_INSIDE_UNKOWN\020\000\022\027\n\023SLOT_NOTHING_INSIDE"
+  "\020\001\022\024\n\020SLOT_WALL_INSIDE\020\002\022\030\n\024SLOT_ROADEDG"
+  "E_INSIDE\020\003*\\\n\020PerceptionSource\022\017\n\013FROM_C"
+  "AMERA\020\000\022\022\n\016FROM_USS_SPACE\020\001\022\022\n\016FROM_FREE"
+  "SPACE\020\002\022\017\n\013FROM_SELECT\020\003"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_fusion_2eproto_deps[4] = {
   &::descriptor_table_common_2eproto,
@@ -588,8 +728,11 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
   &::descriptor_table_header_2eproto,
   &::descriptor_table_odometry_2eproto,
 };
-static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_fusion_2eproto_sccs[6] = {
+static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_fusion_2eproto_sccs[9] = {
   &scc_info_ConvergeInfo_fusion_2eproto.base,
+  &scc_info_FusionLocalObstaclesInfo_fusion_2eproto.base,
+  &scc_info_FusionLocalObstaclesInfo_ObstaclesEntry_fusion_2eproto.base,
+  &scc_info_FusionLocalSemanticMapInfo_fusion_2eproto.base,
   &scc_info_FusionParkingSlotObject_fusion_2eproto.base,
   &scc_info_FusionParkingSlotsInfo_fusion_2eproto.base,
   &scc_info_FusionParkingSlotsInfo_ParkingSlotsEntry_fusion_2eproto.base,
@@ -598,10 +741,10 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_fus
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_fusion_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_fusion_2eproto = {
-  false, false, descriptor_table_protodef_fusion_2eproto, "fusion.proto", 9989,
-  &descriptor_table_fusion_2eproto_once, descriptor_table_fusion_2eproto_sccs, descriptor_table_fusion_2eproto_deps, 6, 4,
+  false, false, descriptor_table_protodef_fusion_2eproto, "fusion.proto", 10904,
+  &descriptor_table_fusion_2eproto_once, descriptor_table_fusion_2eproto_sccs, descriptor_table_fusion_2eproto_deps, 9, 4,
   schemas, file_default_instances, TableStruct_fusion_2eproto::offsets,
-  file_level_metadata_fusion_2eproto, 6, file_level_enum_descriptors_fusion_2eproto, file_level_service_descriptors_fusion_2eproto,
+  file_level_metadata_fusion_2eproto, 9, file_level_enum_descriptors_fusion_2eproto, file_level_service_descriptors_fusion_2eproto,
 };
 
 // Force running AddDescriptors() at dynamic initialization time.
@@ -4373,6 +4516,1221 @@ void FusionParkingSlotsInfo::InternalSwap(FusionParkingSlotsInfo* other) {
 }
 
 
+// ===================================================================
+
+class FusionLocalObstaclesInfo_ObstaclesEntry::_Internal {
+ public:
+  using HasBits = decltype(std::declval<FusionLocalObstaclesInfo_ObstaclesEntry>()._has_bits_);
+  static void set_has_key(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static const ::davinci_adas::apa::common::ObstacleObject& value(const FusionLocalObstaclesInfo_ObstaclesEntry* msg);
+  static void set_has_value(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+};
+
+const ::davinci_adas::apa::common::ObstacleObject&
+FusionLocalObstaclesInfo_ObstaclesEntry::_Internal::value(const FusionLocalObstaclesInfo_ObstaclesEntry* msg) {
+  return *msg->value_;
+}
+void FusionLocalObstaclesInfo_ObstaclesEntry::clear_value() {
+  if (value_ != nullptr) value_->Clear();
+  _has_bits_[0] &= ~0x00000001u;
+}
+FusionLocalObstaclesInfo_ObstaclesEntry::FusionLocalObstaclesInfo_ObstaclesEntry(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:davinci_adas.apa.fusion.FusionLocalObstaclesInfo.ObstaclesEntry)
+}
+FusionLocalObstaclesInfo_ObstaclesEntry::FusionLocalObstaclesInfo_ObstaclesEntry(const FusionLocalObstaclesInfo_ObstaclesEntry& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_value()) {
+    value_ = new ::davinci_adas::apa::common::ObstacleObject(*from.value_);
+  } else {
+    value_ = nullptr;
+  }
+  key_ = from.key_;
+  // @@protoc_insertion_point(copy_constructor:davinci_adas.apa.fusion.FusionLocalObstaclesInfo.ObstaclesEntry)
+}
+
+void FusionLocalObstaclesInfo_ObstaclesEntry::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_FusionLocalObstaclesInfo_ObstaclesEntry_fusion_2eproto.base);
+  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+      reinterpret_cast<char*>(&value_) - reinterpret_cast<char*>(this)),
+      0, static_cast<size_t>(reinterpret_cast<char*>(&key_) -
+      reinterpret_cast<char*>(&value_)) + sizeof(key_));
+}
+
+FusionLocalObstaclesInfo_ObstaclesEntry::~FusionLocalObstaclesInfo_ObstaclesEntry() {
+  // @@protoc_insertion_point(destructor:davinci_adas.apa.fusion.FusionLocalObstaclesInfo.ObstaclesEntry)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void FusionLocalObstaclesInfo_ObstaclesEntry::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  if (this != internal_default_instance()) delete value_;
+}
+
+void FusionLocalObstaclesInfo_ObstaclesEntry::ArenaDtor(void* object) {
+  FusionLocalObstaclesInfo_ObstaclesEntry* _this = reinterpret_cast< FusionLocalObstaclesInfo_ObstaclesEntry* >(object);
+  (void)_this;
+}
+void FusionLocalObstaclesInfo_ObstaclesEntry::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void FusionLocalObstaclesInfo_ObstaclesEntry::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const FusionLocalObstaclesInfo_ObstaclesEntry& FusionLocalObstaclesInfo_ObstaclesEntry::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_FusionLocalObstaclesInfo_ObstaclesEntry_fusion_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void FusionLocalObstaclesInfo_ObstaclesEntry::Clear() {
+// @@protoc_insertion_point(message_clear_start:davinci_adas.apa.fusion.FusionLocalObstaclesInfo.ObstaclesEntry)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    GOOGLE_DCHECK(value_ != nullptr);
+    value_->Clear();
+  }
+  key_ = 0u;
+  _has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* FusionLocalObstaclesInfo_ObstaclesEntry::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // optional uint32 key = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          _Internal::set_has_key(&has_bits);
+          key_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional .davinci_adas.apa.common.ObstacleObject value = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          ptr = ctx->ParseMessage(_internal_mutable_value(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  _has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* FusionLocalObstaclesInfo_ObstaclesEntry::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:davinci_adas.apa.fusion.FusionLocalObstaclesInfo.ObstaclesEntry)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional uint32 key = 1;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_key(), target);
+  }
+
+  // optional .davinci_adas.apa.common.ObstacleObject value = 2;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        2, _Internal::value(this), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:davinci_adas.apa.fusion.FusionLocalObstaclesInfo.ObstaclesEntry)
+  return target;
+}
+
+size_t FusionLocalObstaclesInfo_ObstaclesEntry::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:davinci_adas.apa.fusion.FusionLocalObstaclesInfo.ObstaclesEntry)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    // optional .davinci_adas.apa.common.ObstacleObject value = 2;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *value_);
+    }
+
+    // optional uint32 key = 1;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+          this->_internal_key());
+    }
+
+  }
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void FusionLocalObstaclesInfo_ObstaclesEntry::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:davinci_adas.apa.fusion.FusionLocalObstaclesInfo.ObstaclesEntry)
+  GOOGLE_DCHECK_NE(&from, this);
+  const FusionLocalObstaclesInfo_ObstaclesEntry* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<FusionLocalObstaclesInfo_ObstaclesEntry>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:davinci_adas.apa.fusion.FusionLocalObstaclesInfo.ObstaclesEntry)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:davinci_adas.apa.fusion.FusionLocalObstaclesInfo.ObstaclesEntry)
+    MergeFrom(*source);
+  }
+}
+
+void FusionLocalObstaclesInfo_ObstaclesEntry::MergeFrom(const FusionLocalObstaclesInfo_ObstaclesEntry& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:davinci_adas.apa.fusion.FusionLocalObstaclesInfo.ObstaclesEntry)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      _internal_mutable_value()->::davinci_adas::apa::common::ObstacleObject::MergeFrom(from._internal_value());
+    }
+    if (cached_has_bits & 0x00000002u) {
+      key_ = from.key_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void FusionLocalObstaclesInfo_ObstaclesEntry::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:davinci_adas.apa.fusion.FusionLocalObstaclesInfo.ObstaclesEntry)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void FusionLocalObstaclesInfo_ObstaclesEntry::CopyFrom(const FusionLocalObstaclesInfo_ObstaclesEntry& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:davinci_adas.apa.fusion.FusionLocalObstaclesInfo.ObstaclesEntry)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool FusionLocalObstaclesInfo_ObstaclesEntry::IsInitialized() const {
+  return true;
+}
+
+void FusionLocalObstaclesInfo_ObstaclesEntry::InternalSwap(FusionLocalObstaclesInfo_ObstaclesEntry* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(FusionLocalObstaclesInfo_ObstaclesEntry, key_)
+      + sizeof(FusionLocalObstaclesInfo_ObstaclesEntry::key_)
+      - PROTOBUF_FIELD_OFFSET(FusionLocalObstaclesInfo_ObstaclesEntry, value_)>(
+          reinterpret_cast<char*>(&value_),
+          reinterpret_cast<char*>(&other->value_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata FusionLocalObstaclesInfo_ObstaclesEntry::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class FusionLocalObstaclesInfo::_Internal {
+ public:
+  using HasBits = decltype(std::declval<FusionLocalObstaclesInfo>()._has_bits_);
+  static const ::apollo::common::Header& header(const FusionLocalObstaclesInfo* msg);
+  static void set_has_header(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static const ::davinci_adas::apa::odometry::Odometry& odom(const FusionLocalObstaclesInfo* msg);
+  static void set_has_odom(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_msg_status(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+};
+
+const ::apollo::common::Header&
+FusionLocalObstaclesInfo::_Internal::header(const FusionLocalObstaclesInfo* msg) {
+  return *msg->header_;
+}
+const ::davinci_adas::apa::odometry::Odometry&
+FusionLocalObstaclesInfo::_Internal::odom(const FusionLocalObstaclesInfo* msg) {
+  return *msg->odom_;
+}
+void FusionLocalObstaclesInfo::clear_header() {
+  if (header_ != nullptr) header_->Clear();
+  _has_bits_[0] &= ~0x00000001u;
+}
+void FusionLocalObstaclesInfo::clear_odom() {
+  if (odom_ != nullptr) odom_->Clear();
+  _has_bits_[0] &= ~0x00000002u;
+}
+FusionLocalObstaclesInfo::FusionLocalObstaclesInfo(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+  obstacles_(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:davinci_adas.apa.fusion.FusionLocalObstaclesInfo)
+}
+FusionLocalObstaclesInfo::FusionLocalObstaclesInfo(const FusionLocalObstaclesInfo& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_),
+      obstacles_(from.obstacles_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_header()) {
+    header_ = new ::apollo::common::Header(*from.header_);
+  } else {
+    header_ = nullptr;
+  }
+  if (from._internal_has_odom()) {
+    odom_ = new ::davinci_adas::apa::odometry::Odometry(*from.odom_);
+  } else {
+    odom_ = nullptr;
+  }
+  msg_status_ = from.msg_status_;
+  // @@protoc_insertion_point(copy_constructor:davinci_adas.apa.fusion.FusionLocalObstaclesInfo)
+}
+
+void FusionLocalObstaclesInfo::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_FusionLocalObstaclesInfo_fusion_2eproto.base);
+  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+      reinterpret_cast<char*>(&header_) - reinterpret_cast<char*>(this)),
+      0, static_cast<size_t>(reinterpret_cast<char*>(&msg_status_) -
+      reinterpret_cast<char*>(&header_)) + sizeof(msg_status_));
+}
+
+FusionLocalObstaclesInfo::~FusionLocalObstaclesInfo() {
+  // @@protoc_insertion_point(destructor:davinci_adas.apa.fusion.FusionLocalObstaclesInfo)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void FusionLocalObstaclesInfo::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  if (this != internal_default_instance()) delete header_;
+  if (this != internal_default_instance()) delete odom_;
+}
+
+void FusionLocalObstaclesInfo::ArenaDtor(void* object) {
+  FusionLocalObstaclesInfo* _this = reinterpret_cast< FusionLocalObstaclesInfo* >(object);
+  (void)_this;
+}
+void FusionLocalObstaclesInfo::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void FusionLocalObstaclesInfo::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const FusionLocalObstaclesInfo& FusionLocalObstaclesInfo::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_FusionLocalObstaclesInfo_fusion_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void FusionLocalObstaclesInfo::Clear() {
+// @@protoc_insertion_point(message_clear_start:davinci_adas.apa.fusion.FusionLocalObstaclesInfo)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  obstacles_.Clear();
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      GOOGLE_DCHECK(header_ != nullptr);
+      header_->Clear();
+    }
+    if (cached_has_bits & 0x00000002u) {
+      GOOGLE_DCHECK(odom_ != nullptr);
+      odom_->Clear();
+    }
+  }
+  msg_status_ = 0;
+  _has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* FusionLocalObstaclesInfo::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // optional .apollo.common.Header header = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_header(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // repeated .davinci_adas.apa.fusion.FusionLocalObstaclesInfo.ObstaclesEntry obstacles = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_obstacles(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
+        } else goto handle_unusual;
+        continue;
+      // optional .davinci_adas.apa.odometry.Odometry odom = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+          ptr = ctx->ParseMessage(_internal_mutable_odom(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional .davinci_adas.apa.fusion.MessageStatus msg_status = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          if (PROTOBUF_PREDICT_TRUE(::davinci_adas::apa::fusion::MessageStatus_IsValid(val))) {
+            _internal_set_msg_status(static_cast<::davinci_adas::apa::fusion::MessageStatus>(val));
+          } else {
+            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(4, val, mutable_unknown_fields());
+          }
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  _has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* FusionLocalObstaclesInfo::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:davinci_adas.apa.fusion.FusionLocalObstaclesInfo)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional .apollo.common.Header header = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        1, _Internal::header(this), target, stream);
+  }
+
+  // repeated .davinci_adas.apa.fusion.FusionLocalObstaclesInfo.ObstaclesEntry obstacles = 2;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_obstacles_size()); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(2, this->_internal_obstacles(i), target, stream);
+  }
+
+  // optional .davinci_adas.apa.odometry.Odometry odom = 3;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        3, _Internal::odom(this), target, stream);
+  }
+
+  // optional .davinci_adas.apa.fusion.MessageStatus msg_status = 4;
+  if (cached_has_bits & 0x00000004u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      4, this->_internal_msg_status(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:davinci_adas.apa.fusion.FusionLocalObstaclesInfo)
+  return target;
+}
+
+size_t FusionLocalObstaclesInfo::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:davinci_adas.apa.fusion.FusionLocalObstaclesInfo)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .davinci_adas.apa.fusion.FusionLocalObstaclesInfo.ObstaclesEntry obstacles = 2;
+  total_size += 1UL * this->_internal_obstacles_size();
+  for (const auto& msg : this->obstacles_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    // optional .apollo.common.Header header = 1;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *header_);
+    }
+
+    // optional .davinci_adas.apa.odometry.Odometry odom = 3;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *odom_);
+    }
+
+    // optional .davinci_adas.apa.fusion.MessageStatus msg_status = 4;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_msg_status());
+    }
+
+  }
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void FusionLocalObstaclesInfo::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:davinci_adas.apa.fusion.FusionLocalObstaclesInfo)
+  GOOGLE_DCHECK_NE(&from, this);
+  const FusionLocalObstaclesInfo* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<FusionLocalObstaclesInfo>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:davinci_adas.apa.fusion.FusionLocalObstaclesInfo)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:davinci_adas.apa.fusion.FusionLocalObstaclesInfo)
+    MergeFrom(*source);
+  }
+}
+
+void FusionLocalObstaclesInfo::MergeFrom(const FusionLocalObstaclesInfo& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:davinci_adas.apa.fusion.FusionLocalObstaclesInfo)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  obstacles_.MergeFrom(from.obstacles_);
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    if (cached_has_bits & 0x00000001u) {
+      _internal_mutable_header()->::apollo::common::Header::MergeFrom(from._internal_header());
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _internal_mutable_odom()->::davinci_adas::apa::odometry::Odometry::MergeFrom(from._internal_odom());
+    }
+    if (cached_has_bits & 0x00000004u) {
+      msg_status_ = from.msg_status_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void FusionLocalObstaclesInfo::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:davinci_adas.apa.fusion.FusionLocalObstaclesInfo)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void FusionLocalObstaclesInfo::CopyFrom(const FusionLocalObstaclesInfo& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:davinci_adas.apa.fusion.FusionLocalObstaclesInfo)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool FusionLocalObstaclesInfo::IsInitialized() const {
+  return true;
+}
+
+void FusionLocalObstaclesInfo::InternalSwap(FusionLocalObstaclesInfo* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  obstacles_.InternalSwap(&other->obstacles_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(FusionLocalObstaclesInfo, msg_status_)
+      + sizeof(FusionLocalObstaclesInfo::msg_status_)
+      - PROTOBUF_FIELD_OFFSET(FusionLocalObstaclesInfo, header_)>(
+          reinterpret_cast<char*>(&header_),
+          reinterpret_cast<char*>(&other->header_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata FusionLocalObstaclesInfo::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class FusionLocalSemanticMapInfo::_Internal {
+ public:
+  using HasBits = decltype(std::declval<FusionLocalSemanticMapInfo>()._has_bits_);
+  static const ::apollo::common::Header& header(const FusionLocalSemanticMapInfo* msg);
+  static void set_has_header(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static const ::davinci_adas::apa::common::SemanticMapInfo& occupied_grid_map(const FusionLocalSemanticMapInfo* msg);
+  static void set_has_occupied_grid_map(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static const ::davinci_adas::apa::odometry::Odometry& odom(const FusionLocalSemanticMapInfo* msg);
+  static void set_has_odom(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+  static const ::davinci_adas::apa::common::ImageParam& map2car_param(const FusionLocalSemanticMapInfo* msg);
+  static void set_has_map2car_param(HasBits* has_bits) {
+    (*has_bits)[0] |= 8u;
+  }
+  static const ::davinci_adas::apa::common::ImageParam& map2slot_param(const FusionLocalSemanticMapInfo* msg);
+  static void set_has_map2slot_param(HasBits* has_bits) {
+    (*has_bits)[0] |= 16u;
+  }
+  static const ::davinci_adas::apa::common::ParkingSlotLocation& slot_origin_in_map(const FusionLocalSemanticMapInfo* msg);
+  static void set_has_slot_origin_in_map(HasBits* has_bits) {
+    (*has_bits)[0] |= 32u;
+  }
+  static void set_has_msg_status(HasBits* has_bits) {
+    (*has_bits)[0] |= 128u;
+  }
+  static const ::davinci_adas::apa::geometry::Line& scanned_area_bound(const FusionLocalSemanticMapInfo* msg);
+  static void set_has_scanned_area_bound(HasBits* has_bits) {
+    (*has_bits)[0] |= 64u;
+  }
+};
+
+const ::apollo::common::Header&
+FusionLocalSemanticMapInfo::_Internal::header(const FusionLocalSemanticMapInfo* msg) {
+  return *msg->header_;
+}
+const ::davinci_adas::apa::common::SemanticMapInfo&
+FusionLocalSemanticMapInfo::_Internal::occupied_grid_map(const FusionLocalSemanticMapInfo* msg) {
+  return *msg->occupied_grid_map_;
+}
+const ::davinci_adas::apa::odometry::Odometry&
+FusionLocalSemanticMapInfo::_Internal::odom(const FusionLocalSemanticMapInfo* msg) {
+  return *msg->odom_;
+}
+const ::davinci_adas::apa::common::ImageParam&
+FusionLocalSemanticMapInfo::_Internal::map2car_param(const FusionLocalSemanticMapInfo* msg) {
+  return *msg->map2car_param_;
+}
+const ::davinci_adas::apa::common::ImageParam&
+FusionLocalSemanticMapInfo::_Internal::map2slot_param(const FusionLocalSemanticMapInfo* msg) {
+  return *msg->map2slot_param_;
+}
+const ::davinci_adas::apa::common::ParkingSlotLocation&
+FusionLocalSemanticMapInfo::_Internal::slot_origin_in_map(const FusionLocalSemanticMapInfo* msg) {
+  return *msg->slot_origin_in_map_;
+}
+const ::davinci_adas::apa::geometry::Line&
+FusionLocalSemanticMapInfo::_Internal::scanned_area_bound(const FusionLocalSemanticMapInfo* msg) {
+  return *msg->scanned_area_bound_;
+}
+void FusionLocalSemanticMapInfo::clear_header() {
+  if (header_ != nullptr) header_->Clear();
+  _has_bits_[0] &= ~0x00000001u;
+}
+void FusionLocalSemanticMapInfo::clear_occupied_grid_map() {
+  if (occupied_grid_map_ != nullptr) occupied_grid_map_->Clear();
+  _has_bits_[0] &= ~0x00000002u;
+}
+void FusionLocalSemanticMapInfo::clear_odom() {
+  if (odom_ != nullptr) odom_->Clear();
+  _has_bits_[0] &= ~0x00000004u;
+}
+void FusionLocalSemanticMapInfo::clear_map2car_param() {
+  if (map2car_param_ != nullptr) map2car_param_->Clear();
+  _has_bits_[0] &= ~0x00000008u;
+}
+void FusionLocalSemanticMapInfo::clear_map2slot_param() {
+  if (map2slot_param_ != nullptr) map2slot_param_->Clear();
+  _has_bits_[0] &= ~0x00000010u;
+}
+void FusionLocalSemanticMapInfo::clear_slot_origin_in_map() {
+  if (slot_origin_in_map_ != nullptr) slot_origin_in_map_->Clear();
+  _has_bits_[0] &= ~0x00000020u;
+}
+void FusionLocalSemanticMapInfo::clear_scanned_area_bound() {
+  if (scanned_area_bound_ != nullptr) scanned_area_bound_->Clear();
+  _has_bits_[0] &= ~0x00000040u;
+}
+void FusionLocalSemanticMapInfo::clear_scanned_area() {
+  scanned_area_.Clear();
+}
+FusionLocalSemanticMapInfo::FusionLocalSemanticMapInfo(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+  scanned_area_(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:davinci_adas.apa.fusion.FusionLocalSemanticMapInfo)
+}
+FusionLocalSemanticMapInfo::FusionLocalSemanticMapInfo(const FusionLocalSemanticMapInfo& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_),
+      scanned_area_(from.scanned_area_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_header()) {
+    header_ = new ::apollo::common::Header(*from.header_);
+  } else {
+    header_ = nullptr;
+  }
+  if (from._internal_has_occupied_grid_map()) {
+    occupied_grid_map_ = new ::davinci_adas::apa::common::SemanticMapInfo(*from.occupied_grid_map_);
+  } else {
+    occupied_grid_map_ = nullptr;
+  }
+  if (from._internal_has_odom()) {
+    odom_ = new ::davinci_adas::apa::odometry::Odometry(*from.odom_);
+  } else {
+    odom_ = nullptr;
+  }
+  if (from._internal_has_map2car_param()) {
+    map2car_param_ = new ::davinci_adas::apa::common::ImageParam(*from.map2car_param_);
+  } else {
+    map2car_param_ = nullptr;
+  }
+  if (from._internal_has_map2slot_param()) {
+    map2slot_param_ = new ::davinci_adas::apa::common::ImageParam(*from.map2slot_param_);
+  } else {
+    map2slot_param_ = nullptr;
+  }
+  if (from._internal_has_slot_origin_in_map()) {
+    slot_origin_in_map_ = new ::davinci_adas::apa::common::ParkingSlotLocation(*from.slot_origin_in_map_);
+  } else {
+    slot_origin_in_map_ = nullptr;
+  }
+  if (from._internal_has_scanned_area_bound()) {
+    scanned_area_bound_ = new ::davinci_adas::apa::geometry::Line(*from.scanned_area_bound_);
+  } else {
+    scanned_area_bound_ = nullptr;
+  }
+  msg_status_ = from.msg_status_;
+  // @@protoc_insertion_point(copy_constructor:davinci_adas.apa.fusion.FusionLocalSemanticMapInfo)
+}
+
+void FusionLocalSemanticMapInfo::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_FusionLocalSemanticMapInfo_fusion_2eproto.base);
+  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+      reinterpret_cast<char*>(&header_) - reinterpret_cast<char*>(this)),
+      0, static_cast<size_t>(reinterpret_cast<char*>(&msg_status_) -
+      reinterpret_cast<char*>(&header_)) + sizeof(msg_status_));
+}
+
+FusionLocalSemanticMapInfo::~FusionLocalSemanticMapInfo() {
+  // @@protoc_insertion_point(destructor:davinci_adas.apa.fusion.FusionLocalSemanticMapInfo)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void FusionLocalSemanticMapInfo::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  if (this != internal_default_instance()) delete header_;
+  if (this != internal_default_instance()) delete occupied_grid_map_;
+  if (this != internal_default_instance()) delete odom_;
+  if (this != internal_default_instance()) delete map2car_param_;
+  if (this != internal_default_instance()) delete map2slot_param_;
+  if (this != internal_default_instance()) delete slot_origin_in_map_;
+  if (this != internal_default_instance()) delete scanned_area_bound_;
+}
+
+void FusionLocalSemanticMapInfo::ArenaDtor(void* object) {
+  FusionLocalSemanticMapInfo* _this = reinterpret_cast< FusionLocalSemanticMapInfo* >(object);
+  (void)_this;
+}
+void FusionLocalSemanticMapInfo::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void FusionLocalSemanticMapInfo::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const FusionLocalSemanticMapInfo& FusionLocalSemanticMapInfo::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_FusionLocalSemanticMapInfo_fusion_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void FusionLocalSemanticMapInfo::Clear() {
+// @@protoc_insertion_point(message_clear_start:davinci_adas.apa.fusion.FusionLocalSemanticMapInfo)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  scanned_area_.Clear();
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x0000007fu) {
+    if (cached_has_bits & 0x00000001u) {
+      GOOGLE_DCHECK(header_ != nullptr);
+      header_->Clear();
+    }
+    if (cached_has_bits & 0x00000002u) {
+      GOOGLE_DCHECK(occupied_grid_map_ != nullptr);
+      occupied_grid_map_->Clear();
+    }
+    if (cached_has_bits & 0x00000004u) {
+      GOOGLE_DCHECK(odom_ != nullptr);
+      odom_->Clear();
+    }
+    if (cached_has_bits & 0x00000008u) {
+      GOOGLE_DCHECK(map2car_param_ != nullptr);
+      map2car_param_->Clear();
+    }
+    if (cached_has_bits & 0x00000010u) {
+      GOOGLE_DCHECK(map2slot_param_ != nullptr);
+      map2slot_param_->Clear();
+    }
+    if (cached_has_bits & 0x00000020u) {
+      GOOGLE_DCHECK(slot_origin_in_map_ != nullptr);
+      slot_origin_in_map_->Clear();
+    }
+    if (cached_has_bits & 0x00000040u) {
+      GOOGLE_DCHECK(scanned_area_bound_ != nullptr);
+      scanned_area_bound_->Clear();
+    }
+  }
+  msg_status_ = 0;
+  _has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* FusionLocalSemanticMapInfo::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // optional .apollo.common.Header header = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_header(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional .davinci_adas.apa.common.SemanticMapInfo occupied_grid_map = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          ptr = ctx->ParseMessage(_internal_mutable_occupied_grid_map(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional .davinci_adas.apa.odometry.Odometry odom = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
+          ptr = ctx->ParseMessage(_internal_mutable_odom(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional .davinci_adas.apa.common.ImageParam map2car_param = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
+          ptr = ctx->ParseMessage(_internal_mutable_map2car_param(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional .davinci_adas.apa.common.ImageParam map2slot_param = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
+          ptr = ctx->ParseMessage(_internal_mutable_map2slot_param(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional .davinci_adas.apa.common.ParkingSlotLocation slot_origin_in_map = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
+          ptr = ctx->ParseMessage(_internal_mutable_slot_origin_in_map(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional .davinci_adas.apa.fusion.MessageStatus msg_status = 8;
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 64)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          if (PROTOBUF_PREDICT_TRUE(::davinci_adas::apa::fusion::MessageStatus_IsValid(val))) {
+            _internal_set_msg_status(static_cast<::davinci_adas::apa::fusion::MessageStatus>(val));
+          } else {
+            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(8, val, mutable_unknown_fields());
+          }
+        } else goto handle_unusual;
+        continue;
+      // optional .davinci_adas.apa.geometry.Line scanned_area_bound = 9;
+      case 9:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 74)) {
+          ptr = ctx->ParseMessage(_internal_mutable_scanned_area_bound(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // repeated .davinci_adas.apa.geometry.Polygon scanned_area = 10;
+      case 10:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 82)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_scanned_area(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<82>(ptr));
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  _has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* FusionLocalSemanticMapInfo::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:davinci_adas.apa.fusion.FusionLocalSemanticMapInfo)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional .apollo.common.Header header = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        1, _Internal::header(this), target, stream);
+  }
+
+  // optional .davinci_adas.apa.common.SemanticMapInfo occupied_grid_map = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        2, _Internal::occupied_grid_map(this), target, stream);
+  }
+
+  // optional .davinci_adas.apa.odometry.Odometry odom = 4;
+  if (cached_has_bits & 0x00000004u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        4, _Internal::odom(this), target, stream);
+  }
+
+  // optional .davinci_adas.apa.common.ImageParam map2car_param = 5;
+  if (cached_has_bits & 0x00000008u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        5, _Internal::map2car_param(this), target, stream);
+  }
+
+  // optional .davinci_adas.apa.common.ImageParam map2slot_param = 6;
+  if (cached_has_bits & 0x00000010u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        6, _Internal::map2slot_param(this), target, stream);
+  }
+
+  // optional .davinci_adas.apa.common.ParkingSlotLocation slot_origin_in_map = 7;
+  if (cached_has_bits & 0x00000020u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        7, _Internal::slot_origin_in_map(this), target, stream);
+  }
+
+  // optional .davinci_adas.apa.fusion.MessageStatus msg_status = 8;
+  if (cached_has_bits & 0x00000080u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      8, this->_internal_msg_status(), target);
+  }
+
+  // optional .davinci_adas.apa.geometry.Line scanned_area_bound = 9;
+  if (cached_has_bits & 0x00000040u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        9, _Internal::scanned_area_bound(this), target, stream);
+  }
+
+  // repeated .davinci_adas.apa.geometry.Polygon scanned_area = 10;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_scanned_area_size()); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(10, this->_internal_scanned_area(i), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:davinci_adas.apa.fusion.FusionLocalSemanticMapInfo)
+  return target;
+}
+
+size_t FusionLocalSemanticMapInfo::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:davinci_adas.apa.fusion.FusionLocalSemanticMapInfo)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .davinci_adas.apa.geometry.Polygon scanned_area = 10;
+  total_size += 1UL * this->_internal_scanned_area_size();
+  for (const auto& msg : this->scanned_area_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x000000ffu) {
+    // optional .apollo.common.Header header = 1;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *header_);
+    }
+
+    // optional .davinci_adas.apa.common.SemanticMapInfo occupied_grid_map = 2;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *occupied_grid_map_);
+    }
+
+    // optional .davinci_adas.apa.odometry.Odometry odom = 4;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *odom_);
+    }
+
+    // optional .davinci_adas.apa.common.ImageParam map2car_param = 5;
+    if (cached_has_bits & 0x00000008u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *map2car_param_);
+    }
+
+    // optional .davinci_adas.apa.common.ImageParam map2slot_param = 6;
+    if (cached_has_bits & 0x00000010u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *map2slot_param_);
+    }
+
+    // optional .davinci_adas.apa.common.ParkingSlotLocation slot_origin_in_map = 7;
+    if (cached_has_bits & 0x00000020u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *slot_origin_in_map_);
+    }
+
+    // optional .davinci_adas.apa.geometry.Line scanned_area_bound = 9;
+    if (cached_has_bits & 0x00000040u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *scanned_area_bound_);
+    }
+
+    // optional .davinci_adas.apa.fusion.MessageStatus msg_status = 8;
+    if (cached_has_bits & 0x00000080u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_msg_status());
+    }
+
+  }
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void FusionLocalSemanticMapInfo::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:davinci_adas.apa.fusion.FusionLocalSemanticMapInfo)
+  GOOGLE_DCHECK_NE(&from, this);
+  const FusionLocalSemanticMapInfo* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<FusionLocalSemanticMapInfo>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:davinci_adas.apa.fusion.FusionLocalSemanticMapInfo)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:davinci_adas.apa.fusion.FusionLocalSemanticMapInfo)
+    MergeFrom(*source);
+  }
+}
+
+void FusionLocalSemanticMapInfo::MergeFrom(const FusionLocalSemanticMapInfo& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:davinci_adas.apa.fusion.FusionLocalSemanticMapInfo)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  scanned_area_.MergeFrom(from.scanned_area_);
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 0x000000ffu) {
+    if (cached_has_bits & 0x00000001u) {
+      _internal_mutable_header()->::apollo::common::Header::MergeFrom(from._internal_header());
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _internal_mutable_occupied_grid_map()->::davinci_adas::apa::common::SemanticMapInfo::MergeFrom(from._internal_occupied_grid_map());
+    }
+    if (cached_has_bits & 0x00000004u) {
+      _internal_mutable_odom()->::davinci_adas::apa::odometry::Odometry::MergeFrom(from._internal_odom());
+    }
+    if (cached_has_bits & 0x00000008u) {
+      _internal_mutable_map2car_param()->::davinci_adas::apa::common::ImageParam::MergeFrom(from._internal_map2car_param());
+    }
+    if (cached_has_bits & 0x00000010u) {
+      _internal_mutable_map2slot_param()->::davinci_adas::apa::common::ImageParam::MergeFrom(from._internal_map2slot_param());
+    }
+    if (cached_has_bits & 0x00000020u) {
+      _internal_mutable_slot_origin_in_map()->::davinci_adas::apa::common::ParkingSlotLocation::MergeFrom(from._internal_slot_origin_in_map());
+    }
+    if (cached_has_bits & 0x00000040u) {
+      _internal_mutable_scanned_area_bound()->::davinci_adas::apa::geometry::Line::MergeFrom(from._internal_scanned_area_bound());
+    }
+    if (cached_has_bits & 0x00000080u) {
+      msg_status_ = from.msg_status_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void FusionLocalSemanticMapInfo::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:davinci_adas.apa.fusion.FusionLocalSemanticMapInfo)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void FusionLocalSemanticMapInfo::CopyFrom(const FusionLocalSemanticMapInfo& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:davinci_adas.apa.fusion.FusionLocalSemanticMapInfo)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool FusionLocalSemanticMapInfo::IsInitialized() const {
+  return true;
+}
+
+void FusionLocalSemanticMapInfo::InternalSwap(FusionLocalSemanticMapInfo* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  scanned_area_.InternalSwap(&other->scanned_area_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(FusionLocalSemanticMapInfo, msg_status_)
+      + sizeof(FusionLocalSemanticMapInfo::msg_status_)
+      - PROTOBUF_FIELD_OFFSET(FusionLocalSemanticMapInfo, header_)>(
+          reinterpret_cast<char*>(&header_),
+          reinterpret_cast<char*>(&other->header_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata FusionLocalSemanticMapInfo::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace fusion
 }  // namespace apa
@@ -4395,6 +5753,15 @@ template<> PROTOBUF_NOINLINE ::davinci_adas::apa::fusion::FusionParkingSlotsInfo
 }
 template<> PROTOBUF_NOINLINE ::davinci_adas::apa::fusion::FusionParkingSlotsInfo* Arena::CreateMaybeMessage< ::davinci_adas::apa::fusion::FusionParkingSlotsInfo >(Arena* arena) {
   return Arena::CreateMessageInternal< ::davinci_adas::apa::fusion::FusionParkingSlotsInfo >(arena);
+}
+template<> PROTOBUF_NOINLINE ::davinci_adas::apa::fusion::FusionLocalObstaclesInfo_ObstaclesEntry* Arena::CreateMaybeMessage< ::davinci_adas::apa::fusion::FusionLocalObstaclesInfo_ObstaclesEntry >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::davinci_adas::apa::fusion::FusionLocalObstaclesInfo_ObstaclesEntry >(arena);
+}
+template<> PROTOBUF_NOINLINE ::davinci_adas::apa::fusion::FusionLocalObstaclesInfo* Arena::CreateMaybeMessage< ::davinci_adas::apa::fusion::FusionLocalObstaclesInfo >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::davinci_adas::apa::fusion::FusionLocalObstaclesInfo >(arena);
+}
+template<> PROTOBUF_NOINLINE ::davinci_adas::apa::fusion::FusionLocalSemanticMapInfo* Arena::CreateMaybeMessage< ::davinci_adas::apa::fusion::FusionLocalSemanticMapInfo >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::davinci_adas::apa::fusion::FusionLocalSemanticMapInfo >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

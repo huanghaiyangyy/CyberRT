@@ -30,6 +30,10 @@ class LineDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Line> _instance;
 } _Line_default_instance_;
+class PolygonDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Polygon> _instance;
+} _Polygon_default_instance_;
 }  // namespace geometry
 }  // namespace apa
 }  // namespace davinci_adas
@@ -60,6 +64,20 @@ static void InitDefaultsscc_info_Point2Df_geometry_2eproto() {
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Point2Df_geometry_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_Point2Df_geometry_2eproto}, {}};
 
+static void InitDefaultsscc_info_Polygon_geometry_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::davinci_adas::apa::geometry::_Polygon_default_instance_;
+    new (ptr) ::davinci_adas::apa::geometry::Polygon();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Polygon_geometry_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_Polygon_geometry_2eproto}, {
+      &scc_info_Point2Df_geometry_2eproto.base,}};
+
 static void InitDefaultsscc_info_Pose_geometry_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
@@ -73,7 +91,7 @@ static void InitDefaultsscc_info_Pose_geometry_2eproto() {
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Pose_geometry_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_Pose_geometry_2eproto}, {}};
 
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_geometry_2eproto[3];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_geometry_2eproto[4];
 static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_geometry_2eproto = nullptr;
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_geometry_2eproto = nullptr;
 
@@ -111,17 +129,28 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_geometry_2eproto::offsets[] PR
   PROTOBUF_FIELD_OFFSET(::davinci_adas::apa::geometry::Line, end_),
   0,
   1,
+  PROTOBUF_FIELD_OFFSET(::davinci_adas::apa::geometry::Polygon, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::davinci_adas::apa::geometry::Polygon, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::davinci_adas::apa::geometry::Polygon, is_open_),
+  PROTOBUF_FIELD_OFFSET(::davinci_adas::apa::geometry::Polygon, points_),
+  0,
+  ~0u,
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, 9, sizeof(::davinci_adas::apa::geometry::Point2Df)},
   { 13, 21, sizeof(::davinci_adas::apa::geometry::Pose)},
   { 24, 31, sizeof(::davinci_adas::apa::geometry::Line)},
+  { 33, 40, sizeof(::davinci_adas::apa::geometry::Polygon)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::davinci_adas::apa::geometry::_Point2Df_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::davinci_adas::apa::geometry::_Pose_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::davinci_adas::apa::geometry::_Line_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::davinci_adas::apa::geometry::_Polygon_default_instance_),
 };
 
 const char descriptor_table_protodef_geometry_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -131,21 +160,24 @@ const char descriptor_table_protodef_geometry_2eproto[] PROTOBUF_SECTION_VARIABL
   "\001x\030\001 \001(\001\022\t\n\001y\030\002 \001(\001\022\013\n\003yaw\030\003 \001(\001\"l\n\004Line"
   "\0222\n\005start\030\001 \001(\0132#.davinci_adas.apa.geome"
   "try.Point2Df\0220\n\003end\030\002 \001(\0132#.davinci_adas"
-  ".apa.geometry.Point2Df"
+  ".apa.geometry.Point2Df\"O\n\007Polygon\022\017\n\007is_"
+  "open\030\001 \001(\010\0223\n\006points\030\002 \003(\0132#.davinci_ada"
+  "s.apa.geometry.Point2Df"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_geometry_2eproto_deps[1] = {
 };
-static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_geometry_2eproto_sccs[3] = {
+static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_geometry_2eproto_sccs[4] = {
   &scc_info_Line_geometry_2eproto.base,
   &scc_info_Point2Df_geometry_2eproto.base,
+  &scc_info_Polygon_geometry_2eproto.base,
   &scc_info_Pose_geometry_2eproto.base,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_geometry_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_geometry_2eproto = {
-  false, false, descriptor_table_protodef_geometry_2eproto, "geometry.proto", 262,
-  &descriptor_table_geometry_2eproto_once, descriptor_table_geometry_2eproto_sccs, descriptor_table_geometry_2eproto_deps, 3, 0,
+  false, false, descriptor_table_protodef_geometry_2eproto, "geometry.proto", 343,
+  &descriptor_table_geometry_2eproto_once, descriptor_table_geometry_2eproto_sccs, descriptor_table_geometry_2eproto_deps, 4, 0,
   schemas, file_default_instances, TableStruct_geometry_2eproto::offsets,
-  file_level_metadata_geometry_2eproto, 3, file_level_enum_descriptors_geometry_2eproto, file_level_service_descriptors_geometry_2eproto,
+  file_level_metadata_geometry_2eproto, 4, file_level_enum_descriptors_geometry_2eproto, file_level_service_descriptors_geometry_2eproto,
 };
 
 // Force running AddDescriptors() at dynamic initialization time.
@@ -1009,6 +1041,243 @@ void Line::InternalSwap(Line* other) {
 }
 
 
+// ===================================================================
+
+class Polygon::_Internal {
+ public:
+  using HasBits = decltype(std::declval<Polygon>()._has_bits_);
+  static void set_has_is_open(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+};
+
+Polygon::Polygon(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+  points_(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:davinci_adas.apa.geometry.Polygon)
+}
+Polygon::Polygon(const Polygon& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_),
+      points_(from.points_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  is_open_ = from.is_open_;
+  // @@protoc_insertion_point(copy_constructor:davinci_adas.apa.geometry.Polygon)
+}
+
+void Polygon::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_Polygon_geometry_2eproto.base);
+  is_open_ = false;
+}
+
+Polygon::~Polygon() {
+  // @@protoc_insertion_point(destructor:davinci_adas.apa.geometry.Polygon)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void Polygon::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void Polygon::ArenaDtor(void* object) {
+  Polygon* _this = reinterpret_cast< Polygon* >(object);
+  (void)_this;
+}
+void Polygon::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void Polygon::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const Polygon& Polygon::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_Polygon_geometry_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void Polygon::Clear() {
+// @@protoc_insertion_point(message_clear_start:davinci_adas.apa.geometry.Polygon)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  points_.Clear();
+  is_open_ = false;
+  _has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* Polygon::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // optional bool is_open = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          _Internal::set_has_is_open(&has_bits);
+          is_open_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // repeated .davinci_adas.apa.geometry.Point2Df points = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_points(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  _has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* Polygon::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:davinci_adas.apa.geometry.Polygon)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional bool is_open = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(1, this->_internal_is_open(), target);
+  }
+
+  // repeated .davinci_adas.apa.geometry.Point2Df points = 2;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_points_size()); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(2, this->_internal_points(i), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:davinci_adas.apa.geometry.Polygon)
+  return target;
+}
+
+size_t Polygon::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:davinci_adas.apa.geometry.Polygon)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .davinci_adas.apa.geometry.Point2Df points = 2;
+  total_size += 1UL * this->_internal_points_size();
+  for (const auto& msg : this->points_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // optional bool is_open = 1;
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    total_size += 1 + 1;
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void Polygon::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:davinci_adas.apa.geometry.Polygon)
+  GOOGLE_DCHECK_NE(&from, this);
+  const Polygon* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<Polygon>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:davinci_adas.apa.geometry.Polygon)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:davinci_adas.apa.geometry.Polygon)
+    MergeFrom(*source);
+  }
+}
+
+void Polygon::MergeFrom(const Polygon& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:davinci_adas.apa.geometry.Polygon)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  points_.MergeFrom(from.points_);
+  if (from._internal_has_is_open()) {
+    _internal_set_is_open(from._internal_is_open());
+  }
+}
+
+void Polygon::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:davinci_adas.apa.geometry.Polygon)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Polygon::CopyFrom(const Polygon& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:davinci_adas.apa.geometry.Polygon)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Polygon::IsInitialized() const {
+  return true;
+}
+
+void Polygon::InternalSwap(Polygon* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  points_.InternalSwap(&other->points_);
+  swap(is_open_, other->is_open_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata Polygon::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace geometry
 }  // namespace apa
@@ -1022,6 +1291,9 @@ template<> PROTOBUF_NOINLINE ::davinci_adas::apa::geometry::Pose* Arena::CreateM
 }
 template<> PROTOBUF_NOINLINE ::davinci_adas::apa::geometry::Line* Arena::CreateMaybeMessage< ::davinci_adas::apa::geometry::Line >(Arena* arena) {
   return Arena::CreateMessageInternal< ::davinci_adas::apa::geometry::Line >(arena);
+}
+template<> PROTOBUF_NOINLINE ::davinci_adas::apa::geometry::Polygon* Arena::CreateMaybeMessage< ::davinci_adas::apa::geometry::Polygon >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::davinci_adas::apa::geometry::Polygon >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

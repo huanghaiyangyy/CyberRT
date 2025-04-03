@@ -48,7 +48,7 @@ struct TableStruct_common_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[5]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[7]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -61,6 +61,9 @@ namespace common {
 class FusionObstacleCategory;
 class FusionObstacleCategoryDefaultTypeInternal;
 extern FusionObstacleCategoryDefaultTypeInternal _FusionObstacleCategory_default_instance_;
+class ImageParam;
+class ImageParamDefaultTypeInternal;
+extern ImageParamDefaultTypeInternal _ImageParam_default_instance_;
 class ObstacleObject;
 class ObstacleObjectDefaultTypeInternal;
 extern ObstacleObjectDefaultTypeInternal _ObstacleObject_default_instance_;
@@ -73,20 +76,52 @@ extern ParkingSlotLocationDefaultTypeInternal _ParkingSlotLocation_default_insta
 class ParkingSlotPointsScore;
 class ParkingSlotPointsScoreDefaultTypeInternal;
 extern ParkingSlotPointsScoreDefaultTypeInternal _ParkingSlotPointsScore_default_instance_;
+class SemanticMapInfo;
+class SemanticMapInfoDefaultTypeInternal;
+extern SemanticMapInfoDefaultTypeInternal _SemanticMapInfo_default_instance_;
 }  // namespace common
 }  // namespace apa
 }  // namespace davinci_adas
 PROTOBUF_NAMESPACE_OPEN
 template<> ::davinci_adas::apa::common::FusionObstacleCategory* Arena::CreateMaybeMessage<::davinci_adas::apa::common::FusionObstacleCategory>(Arena*);
+template<> ::davinci_adas::apa::common::ImageParam* Arena::CreateMaybeMessage<::davinci_adas::apa::common::ImageParam>(Arena*);
 template<> ::davinci_adas::apa::common::ObstacleObject* Arena::CreateMaybeMessage<::davinci_adas::apa::common::ObstacleObject>(Arena*);
 template<> ::davinci_adas::apa::common::ObstaclesAroundVehicle* Arena::CreateMaybeMessage<::davinci_adas::apa::common::ObstaclesAroundVehicle>(Arena*);
 template<> ::davinci_adas::apa::common::ParkingSlotLocation* Arena::CreateMaybeMessage<::davinci_adas::apa::common::ParkingSlotLocation>(Arena*);
 template<> ::davinci_adas::apa::common::ParkingSlotPointsScore* Arena::CreateMaybeMessage<::davinci_adas::apa::common::ParkingSlotPointsScore>(Arena*);
+template<> ::davinci_adas::apa::common::SemanticMapInfo* Arena::CreateMaybeMessage<::davinci_adas::apa::common::SemanticMapInfo>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace davinci_adas {
 namespace apa {
 namespace common {
 
+enum ImageType : int {
+  IMAGE_TYPE_RAW = 0,
+  IMAGE_TYPE_AVM = 1,
+  IMAGE_SEMANTIC_MAP = 2,
+  IMAGE_ULTRASONIC_MAP = 3,
+  IMAGE_FUSION_MAP = 4,
+  IMAGE_TYPE_UNKNOWM = 5
+};
+bool ImageType_IsValid(int value);
+constexpr ImageType ImageType_MIN = IMAGE_TYPE_RAW;
+constexpr ImageType ImageType_MAX = IMAGE_TYPE_UNKNOWM;
+constexpr int ImageType_ARRAYSIZE = ImageType_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ImageType_descriptor();
+template<typename T>
+inline const std::string& ImageType_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, ImageType>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function ImageType_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    ImageType_descriptor(), enum_t_value);
+}
+inline bool ImageType_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, ImageType* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<ImageType>(
+    ImageType_descriptor(), name, value);
+}
 enum ImageObstacleCategory : int {
   SEG_FREESPACE = 0,
   SEG_PERSON = 1,
@@ -1153,6 +1188,401 @@ class ObstacleObject PROTOBUF_FINAL :
   float obs_score_;
   friend struct ::TableStruct_common_2eproto;
 };
+// -------------------------------------------------------------------
+
+class SemanticMapInfo PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:davinci_adas.apa.common.SemanticMapInfo) */ {
+ public:
+  inline SemanticMapInfo() : SemanticMapInfo(nullptr) {}
+  virtual ~SemanticMapInfo();
+
+  SemanticMapInfo(const SemanticMapInfo& from);
+  SemanticMapInfo(SemanticMapInfo&& from) noexcept
+    : SemanticMapInfo() {
+    *this = ::std::move(from);
+  }
+
+  inline SemanticMapInfo& operator=(const SemanticMapInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline SemanticMapInfo& operator=(SemanticMapInfo&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const SemanticMapInfo& default_instance();
+
+  static inline const SemanticMapInfo* internal_default_instance() {
+    return reinterpret_cast<const SemanticMapInfo*>(
+               &_SemanticMapInfo_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    5;
+
+  friend void swap(SemanticMapInfo& a, SemanticMapInfo& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(SemanticMapInfo* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(SemanticMapInfo* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline SemanticMapInfo* New() const final {
+    return CreateMaybeMessage<SemanticMapInfo>(nullptr);
+  }
+
+  SemanticMapInfo* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<SemanticMapInfo>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const SemanticMapInfo& from);
+  void MergeFrom(const SemanticMapInfo& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(SemanticMapInfo* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "davinci_adas.apa.common.SemanticMapInfo";
+  }
+  protected:
+  explicit SemanticMapInfo(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_common_2eproto);
+    return ::descriptor_table_common_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kMaskFieldNumber = 1,
+    kScoreFieldNumber = 2,
+    kImgHeightFieldNumber = 3,
+    kImgWidthFieldNumber = 4,
+    kImageTypeFieldNumber = 5,
+  };
+  // optional bytes mask = 1;
+  bool has_mask() const;
+  private:
+  bool _internal_has_mask() const;
+  public:
+  void clear_mask();
+  const std::string& mask() const;
+  void set_mask(const std::string& value);
+  void set_mask(std::string&& value);
+  void set_mask(const char* value);
+  void set_mask(const void* value, size_t size);
+  std::string* mutable_mask();
+  std::string* release_mask();
+  void set_allocated_mask(std::string* mask);
+  private:
+  const std::string& _internal_mask() const;
+  void _internal_set_mask(const std::string& value);
+  std::string* _internal_mutable_mask();
+  public:
+
+  // optional bytes score = 2;
+  bool has_score() const;
+  private:
+  bool _internal_has_score() const;
+  public:
+  void clear_score();
+  const std::string& score() const;
+  void set_score(const std::string& value);
+  void set_score(std::string&& value);
+  void set_score(const char* value);
+  void set_score(const void* value, size_t size);
+  std::string* mutable_score();
+  std::string* release_score();
+  void set_allocated_score(std::string* score);
+  private:
+  const std::string& _internal_score() const;
+  void _internal_set_score(const std::string& value);
+  std::string* _internal_mutable_score();
+  public:
+
+  // optional uint32 img_height = 3;
+  bool has_img_height() const;
+  private:
+  bool _internal_has_img_height() const;
+  public:
+  void clear_img_height();
+  ::PROTOBUF_NAMESPACE_ID::uint32 img_height() const;
+  void set_img_height(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_img_height() const;
+  void _internal_set_img_height(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // optional uint32 img_width = 4;
+  bool has_img_width() const;
+  private:
+  bool _internal_has_img_width() const;
+  public:
+  void clear_img_width();
+  ::PROTOBUF_NAMESPACE_ID::uint32 img_width() const;
+  void set_img_width(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_img_width() const;
+  void _internal_set_img_width(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // optional .davinci_adas.apa.common.ImageType image_type = 5;
+  bool has_image_type() const;
+  private:
+  bool _internal_has_image_type() const;
+  public:
+  void clear_image_type();
+  ::davinci_adas::apa::common::ImageType image_type() const;
+  void set_image_type(::davinci_adas::apa::common::ImageType value);
+  private:
+  ::davinci_adas::apa::common::ImageType _internal_image_type() const;
+  void _internal_set_image_type(::davinci_adas::apa::common::ImageType value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:davinci_adas.apa.common.SemanticMapInfo)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr mask_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr score_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 img_height_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 img_width_;
+  int image_type_;
+  friend struct ::TableStruct_common_2eproto;
+};
+// -------------------------------------------------------------------
+
+class ImageParam PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:davinci_adas.apa.common.ImageParam) */ {
+ public:
+  inline ImageParam() : ImageParam(nullptr) {}
+  virtual ~ImageParam();
+
+  ImageParam(const ImageParam& from);
+  ImageParam(ImageParam&& from) noexcept
+    : ImageParam() {
+    *this = ::std::move(from);
+  }
+
+  inline ImageParam& operator=(const ImageParam& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ImageParam& operator=(ImageParam&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const ImageParam& default_instance();
+
+  static inline const ImageParam* internal_default_instance() {
+    return reinterpret_cast<const ImageParam*>(
+               &_ImageParam_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    6;
+
+  friend void swap(ImageParam& a, ImageParam& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(ImageParam* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ImageParam* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline ImageParam* New() const final {
+    return CreateMaybeMessage<ImageParam>(nullptr);
+  }
+
+  ImageParam* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<ImageParam>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const ImageParam& from);
+  void MergeFrom(const ImageParam& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ImageParam* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "davinci_adas.apa.common.ImageParam";
+  }
+  protected:
+  explicit ImageParam(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_common_2eproto);
+    return ::descriptor_table_common_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kPhysicalOriginFieldNumber = 1,
+    kImage2PhysicalScaleFieldNumber = 2,
+  };
+  // optional .davinci_adas.apa.geometry.Pose physical_origin = 1;
+  bool has_physical_origin() const;
+  private:
+  bool _internal_has_physical_origin() const;
+  public:
+  void clear_physical_origin();
+  const ::davinci_adas::apa::geometry::Pose& physical_origin() const;
+  ::davinci_adas::apa::geometry::Pose* release_physical_origin();
+  ::davinci_adas::apa::geometry::Pose* mutable_physical_origin();
+  void set_allocated_physical_origin(::davinci_adas::apa::geometry::Pose* physical_origin);
+  private:
+  const ::davinci_adas::apa::geometry::Pose& _internal_physical_origin() const;
+  ::davinci_adas::apa::geometry::Pose* _internal_mutable_physical_origin();
+  public:
+  void unsafe_arena_set_allocated_physical_origin(
+      ::davinci_adas::apa::geometry::Pose* physical_origin);
+  ::davinci_adas::apa::geometry::Pose* unsafe_arena_release_physical_origin();
+
+  // optional .davinci_adas.apa.geometry.Point2Df image2physical_scale = 2;
+  bool has_image2physical_scale() const;
+  private:
+  bool _internal_has_image2physical_scale() const;
+  public:
+  void clear_image2physical_scale();
+  const ::davinci_adas::apa::geometry::Point2Df& image2physical_scale() const;
+  ::davinci_adas::apa::geometry::Point2Df* release_image2physical_scale();
+  ::davinci_adas::apa::geometry::Point2Df* mutable_image2physical_scale();
+  void set_allocated_image2physical_scale(::davinci_adas::apa::geometry::Point2Df* image2physical_scale);
+  private:
+  const ::davinci_adas::apa::geometry::Point2Df& _internal_image2physical_scale() const;
+  ::davinci_adas::apa::geometry::Point2Df* _internal_mutable_image2physical_scale();
+  public:
+  void unsafe_arena_set_allocated_image2physical_scale(
+      ::davinci_adas::apa::geometry::Point2Df* image2physical_scale);
+  ::davinci_adas::apa::geometry::Point2Df* unsafe_arena_release_image2physical_scale();
+
+  // @@protoc_insertion_point(class_scope:davinci_adas.apa.common.ImageParam)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::davinci_adas::apa::geometry::Pose* physical_origin_;
+  ::davinci_adas::apa::geometry::Point2Df* image2physical_scale_;
+  friend struct ::TableStruct_common_2eproto;
+};
 // ===================================================================
 
 
@@ -2083,9 +2513,410 @@ ObstacleObject::obs_points() const {
   return obs_points_;
 }
 
+// -------------------------------------------------------------------
+
+// SemanticMapInfo
+
+// optional bytes mask = 1;
+inline bool SemanticMapInfo::_internal_has_mask() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool SemanticMapInfo::has_mask() const {
+  return _internal_has_mask();
+}
+inline void SemanticMapInfo::clear_mask() {
+  mask_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline const std::string& SemanticMapInfo::mask() const {
+  // @@protoc_insertion_point(field_get:davinci_adas.apa.common.SemanticMapInfo.mask)
+  return _internal_mask();
+}
+inline void SemanticMapInfo::set_mask(const std::string& value) {
+  _internal_set_mask(value);
+  // @@protoc_insertion_point(field_set:davinci_adas.apa.common.SemanticMapInfo.mask)
+}
+inline std::string* SemanticMapInfo::mutable_mask() {
+  // @@protoc_insertion_point(field_mutable:davinci_adas.apa.common.SemanticMapInfo.mask)
+  return _internal_mutable_mask();
+}
+inline const std::string& SemanticMapInfo::_internal_mask() const {
+  return mask_.Get();
+}
+inline void SemanticMapInfo::_internal_set_mask(const std::string& value) {
+  _has_bits_[0] |= 0x00000001u;
+  mask_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void SemanticMapInfo::set_mask(std::string&& value) {
+  _has_bits_[0] |= 0x00000001u;
+  mask_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:davinci_adas.apa.common.SemanticMapInfo.mask)
+}
+inline void SemanticMapInfo::set_mask(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00000001u;
+  mask_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:davinci_adas.apa.common.SemanticMapInfo.mask)
+}
+inline void SemanticMapInfo::set_mask(const void* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00000001u;
+  mask_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:davinci_adas.apa.common.SemanticMapInfo.mask)
+}
+inline std::string* SemanticMapInfo::_internal_mutable_mask() {
+  _has_bits_[0] |= 0x00000001u;
+  return mask_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* SemanticMapInfo::release_mask() {
+  // @@protoc_insertion_point(field_release:davinci_adas.apa.common.SemanticMapInfo.mask)
+  if (!_internal_has_mask()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000001u;
+  return mask_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void SemanticMapInfo::set_allocated_mask(std::string* mask) {
+  if (mask != nullptr) {
+    _has_bits_[0] |= 0x00000001u;
+  } else {
+    _has_bits_[0] &= ~0x00000001u;
+  }
+  mask_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), mask,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:davinci_adas.apa.common.SemanticMapInfo.mask)
+}
+
+// optional bytes score = 2;
+inline bool SemanticMapInfo::_internal_has_score() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool SemanticMapInfo::has_score() const {
+  return _internal_has_score();
+}
+inline void SemanticMapInfo::clear_score() {
+  score_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline const std::string& SemanticMapInfo::score() const {
+  // @@protoc_insertion_point(field_get:davinci_adas.apa.common.SemanticMapInfo.score)
+  return _internal_score();
+}
+inline void SemanticMapInfo::set_score(const std::string& value) {
+  _internal_set_score(value);
+  // @@protoc_insertion_point(field_set:davinci_adas.apa.common.SemanticMapInfo.score)
+}
+inline std::string* SemanticMapInfo::mutable_score() {
+  // @@protoc_insertion_point(field_mutable:davinci_adas.apa.common.SemanticMapInfo.score)
+  return _internal_mutable_score();
+}
+inline const std::string& SemanticMapInfo::_internal_score() const {
+  return score_.Get();
+}
+inline void SemanticMapInfo::_internal_set_score(const std::string& value) {
+  _has_bits_[0] |= 0x00000002u;
+  score_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void SemanticMapInfo::set_score(std::string&& value) {
+  _has_bits_[0] |= 0x00000002u;
+  score_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:davinci_adas.apa.common.SemanticMapInfo.score)
+}
+inline void SemanticMapInfo::set_score(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00000002u;
+  score_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:davinci_adas.apa.common.SemanticMapInfo.score)
+}
+inline void SemanticMapInfo::set_score(const void* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00000002u;
+  score_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:davinci_adas.apa.common.SemanticMapInfo.score)
+}
+inline std::string* SemanticMapInfo::_internal_mutable_score() {
+  _has_bits_[0] |= 0x00000002u;
+  return score_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* SemanticMapInfo::release_score() {
+  // @@protoc_insertion_point(field_release:davinci_adas.apa.common.SemanticMapInfo.score)
+  if (!_internal_has_score()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000002u;
+  return score_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void SemanticMapInfo::set_allocated_score(std::string* score) {
+  if (score != nullptr) {
+    _has_bits_[0] |= 0x00000002u;
+  } else {
+    _has_bits_[0] &= ~0x00000002u;
+  }
+  score_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), score,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:davinci_adas.apa.common.SemanticMapInfo.score)
+}
+
+// optional uint32 img_height = 3;
+inline bool SemanticMapInfo::_internal_has_img_height() const {
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool SemanticMapInfo::has_img_height() const {
+  return _internal_has_img_height();
+}
+inline void SemanticMapInfo::clear_img_height() {
+  img_height_ = 0u;
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 SemanticMapInfo::_internal_img_height() const {
+  return img_height_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 SemanticMapInfo::img_height() const {
+  // @@protoc_insertion_point(field_get:davinci_adas.apa.common.SemanticMapInfo.img_height)
+  return _internal_img_height();
+}
+inline void SemanticMapInfo::_internal_set_img_height(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _has_bits_[0] |= 0x00000004u;
+  img_height_ = value;
+}
+inline void SemanticMapInfo::set_img_height(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_img_height(value);
+  // @@protoc_insertion_point(field_set:davinci_adas.apa.common.SemanticMapInfo.img_height)
+}
+
+// optional uint32 img_width = 4;
+inline bool SemanticMapInfo::_internal_has_img_width() const {
+  bool value = (_has_bits_[0] & 0x00000008u) != 0;
+  return value;
+}
+inline bool SemanticMapInfo::has_img_width() const {
+  return _internal_has_img_width();
+}
+inline void SemanticMapInfo::clear_img_width() {
+  img_width_ = 0u;
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 SemanticMapInfo::_internal_img_width() const {
+  return img_width_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 SemanticMapInfo::img_width() const {
+  // @@protoc_insertion_point(field_get:davinci_adas.apa.common.SemanticMapInfo.img_width)
+  return _internal_img_width();
+}
+inline void SemanticMapInfo::_internal_set_img_width(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _has_bits_[0] |= 0x00000008u;
+  img_width_ = value;
+}
+inline void SemanticMapInfo::set_img_width(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_img_width(value);
+  // @@protoc_insertion_point(field_set:davinci_adas.apa.common.SemanticMapInfo.img_width)
+}
+
+// optional .davinci_adas.apa.common.ImageType image_type = 5;
+inline bool SemanticMapInfo::_internal_has_image_type() const {
+  bool value = (_has_bits_[0] & 0x00000010u) != 0;
+  return value;
+}
+inline bool SemanticMapInfo::has_image_type() const {
+  return _internal_has_image_type();
+}
+inline void SemanticMapInfo::clear_image_type() {
+  image_type_ = 0;
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline ::davinci_adas::apa::common::ImageType SemanticMapInfo::_internal_image_type() const {
+  return static_cast< ::davinci_adas::apa::common::ImageType >(image_type_);
+}
+inline ::davinci_adas::apa::common::ImageType SemanticMapInfo::image_type() const {
+  // @@protoc_insertion_point(field_get:davinci_adas.apa.common.SemanticMapInfo.image_type)
+  return _internal_image_type();
+}
+inline void SemanticMapInfo::_internal_set_image_type(::davinci_adas::apa::common::ImageType value) {
+  assert(::davinci_adas::apa::common::ImageType_IsValid(value));
+  _has_bits_[0] |= 0x00000010u;
+  image_type_ = value;
+}
+inline void SemanticMapInfo::set_image_type(::davinci_adas::apa::common::ImageType value) {
+  _internal_set_image_type(value);
+  // @@protoc_insertion_point(field_set:davinci_adas.apa.common.SemanticMapInfo.image_type)
+}
+
+// -------------------------------------------------------------------
+
+// ImageParam
+
+// optional .davinci_adas.apa.geometry.Pose physical_origin = 1;
+inline bool ImageParam::_internal_has_physical_origin() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  PROTOBUF_ASSUME(!value || physical_origin_ != nullptr);
+  return value;
+}
+inline bool ImageParam::has_physical_origin() const {
+  return _internal_has_physical_origin();
+}
+inline const ::davinci_adas::apa::geometry::Pose& ImageParam::_internal_physical_origin() const {
+  const ::davinci_adas::apa::geometry::Pose* p = physical_origin_;
+  return p != nullptr ? *p : reinterpret_cast<const ::davinci_adas::apa::geometry::Pose&>(
+      ::davinci_adas::apa::geometry::_Pose_default_instance_);
+}
+inline const ::davinci_adas::apa::geometry::Pose& ImageParam::physical_origin() const {
+  // @@protoc_insertion_point(field_get:davinci_adas.apa.common.ImageParam.physical_origin)
+  return _internal_physical_origin();
+}
+inline void ImageParam::unsafe_arena_set_allocated_physical_origin(
+    ::davinci_adas::apa::geometry::Pose* physical_origin) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(physical_origin_);
+  }
+  physical_origin_ = physical_origin;
+  if (physical_origin) {
+    _has_bits_[0] |= 0x00000001u;
+  } else {
+    _has_bits_[0] &= ~0x00000001u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:davinci_adas.apa.common.ImageParam.physical_origin)
+}
+inline ::davinci_adas::apa::geometry::Pose* ImageParam::release_physical_origin() {
+  _has_bits_[0] &= ~0x00000001u;
+  ::davinci_adas::apa::geometry::Pose* temp = physical_origin_;
+  physical_origin_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::davinci_adas::apa::geometry::Pose* ImageParam::unsafe_arena_release_physical_origin() {
+  // @@protoc_insertion_point(field_release:davinci_adas.apa.common.ImageParam.physical_origin)
+  _has_bits_[0] &= ~0x00000001u;
+  ::davinci_adas::apa::geometry::Pose* temp = physical_origin_;
+  physical_origin_ = nullptr;
+  return temp;
+}
+inline ::davinci_adas::apa::geometry::Pose* ImageParam::_internal_mutable_physical_origin() {
+  _has_bits_[0] |= 0x00000001u;
+  if (physical_origin_ == nullptr) {
+    auto* p = CreateMaybeMessage<::davinci_adas::apa::geometry::Pose>(GetArena());
+    physical_origin_ = p;
+  }
+  return physical_origin_;
+}
+inline ::davinci_adas::apa::geometry::Pose* ImageParam::mutable_physical_origin() {
+  // @@protoc_insertion_point(field_mutable:davinci_adas.apa.common.ImageParam.physical_origin)
+  return _internal_mutable_physical_origin();
+}
+inline void ImageParam::set_allocated_physical_origin(::davinci_adas::apa::geometry::Pose* physical_origin) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(physical_origin_);
+  }
+  if (physical_origin) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(physical_origin)->GetArena();
+    if (message_arena != submessage_arena) {
+      physical_origin = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, physical_origin, submessage_arena);
+    }
+    _has_bits_[0] |= 0x00000001u;
+  } else {
+    _has_bits_[0] &= ~0x00000001u;
+  }
+  physical_origin_ = physical_origin;
+  // @@protoc_insertion_point(field_set_allocated:davinci_adas.apa.common.ImageParam.physical_origin)
+}
+
+// optional .davinci_adas.apa.geometry.Point2Df image2physical_scale = 2;
+inline bool ImageParam::_internal_has_image2physical_scale() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  PROTOBUF_ASSUME(!value || image2physical_scale_ != nullptr);
+  return value;
+}
+inline bool ImageParam::has_image2physical_scale() const {
+  return _internal_has_image2physical_scale();
+}
+inline const ::davinci_adas::apa::geometry::Point2Df& ImageParam::_internal_image2physical_scale() const {
+  const ::davinci_adas::apa::geometry::Point2Df* p = image2physical_scale_;
+  return p != nullptr ? *p : reinterpret_cast<const ::davinci_adas::apa::geometry::Point2Df&>(
+      ::davinci_adas::apa::geometry::_Point2Df_default_instance_);
+}
+inline const ::davinci_adas::apa::geometry::Point2Df& ImageParam::image2physical_scale() const {
+  // @@protoc_insertion_point(field_get:davinci_adas.apa.common.ImageParam.image2physical_scale)
+  return _internal_image2physical_scale();
+}
+inline void ImageParam::unsafe_arena_set_allocated_image2physical_scale(
+    ::davinci_adas::apa::geometry::Point2Df* image2physical_scale) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(image2physical_scale_);
+  }
+  image2physical_scale_ = image2physical_scale;
+  if (image2physical_scale) {
+    _has_bits_[0] |= 0x00000002u;
+  } else {
+    _has_bits_[0] &= ~0x00000002u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:davinci_adas.apa.common.ImageParam.image2physical_scale)
+}
+inline ::davinci_adas::apa::geometry::Point2Df* ImageParam::release_image2physical_scale() {
+  _has_bits_[0] &= ~0x00000002u;
+  ::davinci_adas::apa::geometry::Point2Df* temp = image2physical_scale_;
+  image2physical_scale_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::davinci_adas::apa::geometry::Point2Df* ImageParam::unsafe_arena_release_image2physical_scale() {
+  // @@protoc_insertion_point(field_release:davinci_adas.apa.common.ImageParam.image2physical_scale)
+  _has_bits_[0] &= ~0x00000002u;
+  ::davinci_adas::apa::geometry::Point2Df* temp = image2physical_scale_;
+  image2physical_scale_ = nullptr;
+  return temp;
+}
+inline ::davinci_adas::apa::geometry::Point2Df* ImageParam::_internal_mutable_image2physical_scale() {
+  _has_bits_[0] |= 0x00000002u;
+  if (image2physical_scale_ == nullptr) {
+    auto* p = CreateMaybeMessage<::davinci_adas::apa::geometry::Point2Df>(GetArena());
+    image2physical_scale_ = p;
+  }
+  return image2physical_scale_;
+}
+inline ::davinci_adas::apa::geometry::Point2Df* ImageParam::mutable_image2physical_scale() {
+  // @@protoc_insertion_point(field_mutable:davinci_adas.apa.common.ImageParam.image2physical_scale)
+  return _internal_mutable_image2physical_scale();
+}
+inline void ImageParam::set_allocated_image2physical_scale(::davinci_adas::apa::geometry::Point2Df* image2physical_scale) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(image2physical_scale_);
+  }
+  if (image2physical_scale) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(image2physical_scale)->GetArena();
+    if (message_arena != submessage_arena) {
+      image2physical_scale = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, image2physical_scale, submessage_arena);
+    }
+    _has_bits_[0] |= 0x00000002u;
+  } else {
+    _has_bits_[0] &= ~0x00000002u;
+  }
+  image2physical_scale_ = image2physical_scale;
+  // @@protoc_insertion_point(field_set_allocated:davinci_adas.apa.common.ImageParam.image2physical_scale)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
@@ -2103,6 +2934,11 @@ ObstacleObject::obs_points() const {
 
 PROTOBUF_NAMESPACE_OPEN
 
+template <> struct is_proto_enum< ::davinci_adas::apa::common::ImageType> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::davinci_adas::apa::common::ImageType>() {
+  return ::davinci_adas::apa::common::ImageType_descriptor();
+}
 template <> struct is_proto_enum< ::davinci_adas::apa::common::ImageObstacleCategory> : ::std::true_type {};
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::davinci_adas::apa::common::ImageObstacleCategory>() {

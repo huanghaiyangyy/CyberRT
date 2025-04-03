@@ -10,6 +10,15 @@ message ParkingSlotPointsScore {
   optional float p3_score = 4;
 }
 
+enum ImageType {
+  IMAGE_TYPE_RAW = 0;
+  IMAGE_TYPE_AVM = 1;
+  IMAGE_SEMANTIC_MAP = 2;
+  IMAGE_ULTRASONIC_MAP = 3;
+  IMAGE_FUSION_MAP = 4;
+  IMAGE_TYPE_UNKNOWM = 5;
+}
+
 enum ImageObstacleCategory {
   SEG_FREESPACE = 0;
   SEG_PERSON = 1;
@@ -76,4 +85,17 @@ message ObstacleObject {
   optional davinci_adas.apa.geometry.Point2Df obs_closest_point = 4;
   optional davinci_adas.apa.geometry.Point2Df obs_velocity = 5;
   repeated davinci_adas.apa.geometry.Point2Df obs_points = 6;
+}
+
+message SemanticMapInfo {
+  optional bytes mask = 1;
+  optional bytes score = 2;
+  optional uint32 img_height = 3;
+  optional uint32 img_width = 4;
+  optional ImageType image_type = 5;
+}
+
+message ImageParam {
+  optional davinci_adas.apa.geometry.Pose physical_origin = 1;
+  optional davinci_adas.apa.geometry.Point2Df image2physical_scale = 2;
 }
