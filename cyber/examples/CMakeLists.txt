@@ -12,6 +12,11 @@ target_link_libraries(cyber_example_listener
     pthread
 )
 
+add_executable(cyber_example_listener_apa listener_apa.cc apa_proto/error_code.pb.cc apa_proto/header.pb.cc apa_proto/odometry.pb.cc)
+target_link_libraries(cyber_example_listener_apa
+    ${TARGET_NAME}
+    pthread
+)
 
 add_executable(cyber_example_listener_zjw listener_zjw.cc proto/examples.pb.cc)
 target_link_libraries(cyber_example_listener_zjw
