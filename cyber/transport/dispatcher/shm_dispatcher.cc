@@ -15,6 +15,7 @@
  *****************************************************************************/
 
 #include "cyber/transport/dispatcher/shm_dispatcher.h"
+
 #include "cyber/common/global_data.h"
 #include "cyber/common/util.h"
 #include "cyber/scheduler/scheduler_factory.h"
@@ -88,11 +89,15 @@ void ShmDispatcher::OnMessage(uint64_t channel_id,
   if (is_shutdown_.load()) {
     return;
   }
+  ADEBUG << "shm on message, channel:"
+         << common::GlobalData::GetChannelById(channel_id);
   ListenerHandlerBasePtr* handler_base = nullptr;
   if (msg_listeners_.Get(channel_id, &handler_base)) {
     auto handler = std::dynamic_pointer_cast<ListenerHandler<ReadableBlock>>(
         *handler_base);
-    handler->Run(rb, msg_info);
+    MessageInfo msg_info_copy(msg_info);
+    msg_info_copy.set_channel_id(channel_id);
+    handler->Run(rb, msg_info_copy);
   } else {
     AERROR << "Cannot find " << GlobalData::GetChannelById(channel_id)
            << "'s handler.";
