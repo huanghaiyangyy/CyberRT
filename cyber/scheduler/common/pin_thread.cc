@@ -59,14 +59,14 @@ void SetSchedAffinity(std::thread* thread, const std::vector<int>& cpus,
       for (const auto cpu : cpus) {
         CPU_SET(cpu, &set);
       }
-      pthread_setaffinity_np(thread->native_handle(), sizeof(set), &set);
+      // pthread_setaffinity_np(thread->native_handle(), sizeof(set), &set);
       AINFO << "thread " << thread->get_id() << " set range affinity";
     } else if (!affinity.compare("1to1")) {
       if (cpu_id == -1 || (uint32_t)cpu_id >= cpus.size()) {
         return;
       }
       CPU_SET(cpus[cpu_id], &set);
-      pthread_setaffinity_np(thread->native_handle(), sizeof(set), &set);
+      // pthread_setaffinity_np(thread->native_handle(), sizeof(set), &set);
       AINFO << "thread " << thread->get_id() << " set 1to1 affinity";
     }
   }

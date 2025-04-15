@@ -6,53 +6,81 @@ set(CMAKE_CXX_STANDARD 14)
 set(TARGET_NAME ${PROJECT_NAME})
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+#### Andoroid配置
+set(CMAKE_TOOLCHAIN_FILE /home/huang/Documents/android-ndk-r21e/build/cmake/android.toolchain.cmake)
+set(CMAKE_SYSTEM_NAME Android)
+set(CMAKE_SYSTEM_VERSION 26) 
+set(CMAKE_ANDROID_NDK /home/huang/Documents/android-ndk-r21e) # 设置NDK路径
+set(CMAKE_ANDROID_STL_TYPE c++_shared)    # 使用LLVM STL
+set(CMAKE_ANDROID_ARCH_ABI arm64-v8a)    # 根据需求修改ABI
+set(CMAKE_PREFIX_PATH "/home/huang/third_party_x86" ${CMAKE_PREFIX_PATH})
+set(ANDROID_PLATFORM android-26)
+set(ANDROID_NATIVE_API_LEVEL 26) 
+# set(CMAKE_CXX_STANDARD 17)
+
+
+# 设置编译器
+set(CMAKE_C_COMPILER ${CMAKE_ANDROID_NDK}/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android26-clang)
+set(CMAKE_CXX_COMPILER ${CMAKE_ANDROID_NDK}/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android26-clang++)
+
+set(ANDROID_TOOLCHAIN ${CMAKE_ANDROID_NDK}/toolchains/llvm/prebuilt/linux-x86_64)
+set(CMAKE_SYSROOT ${ANDROID_TOOLCHAIN}/sysroot)
+
+# # 添加交叉编译路径限制
+set(CMAKE_FIND_ROOT_PATH "${CMAKE_CURRENT_SOURCE_DIR}/android_third_party")
+set(CMAKE_FIND_ROOT_PATH_MODE_PACKAGE ONLY)
+set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
+set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
+
+
 enable_language(ASM)
 
 include(CMakePackageConfigHelpers)
 include(GNUInstallDirs)
 
-set(CROUTINE_FILE "cyber/croutine/detail/swap_x86_64.S")
-if(${CMAKE_SYSTEM_PROCESSOR} STREQUAL "x86_64")
-  set(CROUTINE_FILE "cyber/croutine/detail/swap_x86_64.S")
-  message("### SYSTEM_PROCESSOR: ${CMAKE_SYSTEM_PROCESSOR} ${CROUTINE_FILE}")
-else()
-  set(CROUTINE_FILE "cyber/croutine/detail/swap_aarch64.S")
-  message("### SYSTEM_PROCESSOR: ${CMAKE_SYSTEM_PROCESSOR} ${CROUTINE_FILE}")
-endif(${CMAKE_SYSTEM_PROCESSOR} STREQUAL "x86_64")
+set(CROUTINE_FILE "cyber/croutine/detail/swap_aarch64.S")
 
-find_package(Threads REQUIRED)
-find_package(PkgConfig REQUIRED)
-find_package(fastrtps REQUIRED)
-find_package(fastcdr REQUIRED)
-find_package(Poco REQUIRED COMPONENTS Foundation)
-find_package(glog REQUIRED)
-# find_package(Python REQUIRED COMPONENTS Interpreter Development)
-pkg_check_modules(Python REQUIRED python3)
-find_package(Protobuf REQUIRED)
-pkg_check_modules(Gflags REQUIRED gflags)
+# set(CROUTINE_FILE "cyber/croutine/detail/swap_x86_64.S")
+# if(${CMAKE_SYSTEM_PROCESSOR} STREQUAL "x86_64")
+#   set(CROUTINE_FILE "cyber/croutine/detail/swap_x86_64.S")
+#   message("### SYSTEM_PROCESSOR: ${CMAKE_SYSTEM_PROCESSOR} ${CROUTINE_FILE}")
+# else()
+#   set(CROUTINE_FILE "cyber/croutine/detail/swap_aarch64.S")
+#   message("### SYSTEM_PROCESSOR: ${CMAKE_SYSTEM_PROCESSOR} ${CROUTINE_FILE}")
+# endif(${CMAKE_SYSTEM_PROCESSOR} STREQUAL "x86_64")
 
-# set(Python_VERSION "${Python_VERSION_MAJOR}.${Python_VERSION_MINOR}")
-set(Python_VERSION "${Python_VERSION}")
-set(CYBER_PYTHON_PATH "lib/python${Python_VERSION}/site-packages/cyber/python")
-set(CYBER_PYTHON_INTERNAL_PATH "${CYBER_PYTHON_PATH}/internal")
-set(CYBER_PYTHON_PROTOBUF_PATH "lib/python${Python_VERSION}/site-packages/cyber/proto")
+# find_package(Threads REQUIRED)
+# find_package(PkgConfig REQUIRED)
+# find_package(fastrtps REQUIRED)
+# find_package(fastcdr REQUIRED)
+# find_package(Poco REQUIRED COMPONENTS Foundation)
+# find_package(glog REQUIRED)
+# # find_package(Python REQUIRED COMPONENTS Interpreter Development)
+# pkg_check_modules(Python REQUIRED python3)
+# find_package(Protobuf REQUIRED)
+# pkg_check_modules(Gflags REQUIRED gflags)
+
 
 include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}
-    ${fastcdr_INCLUDE_DIR}
-    ${fastrtps_INCLUDE_DIR}
-    ${Protobuf_INCLUDE_DIRS}
-    ${Python_INCLUDE_DIRS}
-    ${Glog_INCLUDE_DIRS}
-    ${Gflags_INCLUDE_DIRS}
+    ${CMAKE_CURRENT_SOURCE_DIR}/android_third_party/include
+    ${CMAKE_SYSROOT}/usr/include
+    # ${fastcdr_INCLUDE_DIR}
+    # ${fastrtps_INCLUDE_DIR}
+    # ${Protobuf_INCLUDE_DIRS}
+    # ${Python_INCLUDE_DIRS}
+    # ${Glog_INCLUDE_DIRS}
+    # ${Gflags_INCLUDE_DIRS}
 )
 
 link_directories(
-    ${fastcdr_LIB_DIR}
-    ${fastrtps_LIB_DIR}
-    ${Protobuf_LIBRARIES_DIRS}
-    ${Glog_LIBRARY_DIRS}
-    ${Gflags_LIBRARY_DIRS}
+    ${CMAKE_CURRENT_SOURCE_DIR}/android_third_party/lib
+    ${CMAKE_SYSROOT}/usr/lib
+    # ${fastcdr_LIB_DIR}
+    # ${fastrtps_LIB_DIR}
+    # ${Protobuf_LIBRARIES_DIRS}
+    # ${Glog_LIBRARY_DIRS}
+    # ${Gflags_LIBRARY_DIRS}
 )
 
 file(GLOB CYBER_SRCS 
@@ -126,176 +154,196 @@ target_link_libraries(${TARGET_NAME}
     ${Protobuf_LIBRARIES}
     ${Poco_LIBRARIES}
     glog
+    gflags
     fastrtps
     fastcdr
     atomic
     uuid
 )
 
-add_executable(mainboard
-  cyber/mainboard/mainboard.cc
-  cyber/mainboard/module_argument.cc
-  cyber/mainboard/module_controller.cc
-)
-target_link_libraries(mainboard
-  pthread
-  ${TARGET_NAME}
-)
-set_target_properties(mainboard PROPERTIES RUNTIME_OUTPUT_DIRECTORY "bin/")
-
-
-add_subdirectory(cyber/examples)
-add_subdirectory(cyber/python)
-add_subdirectory(cyber/tools)
-
-# --------------------------------------------------------------
-#                      CPack
-# --------------------------------------------------------------
-# 打包方式 
-include(InstallRequiredSystemLibraries)
-if (APPLE)
-elseif (UNIX)
-  set (CPACK_GENERATOR        "DEB")
-  set (CPACK_SOURCE_GENERATOR "TGZ;ZIP")
-endif ()
-
-# system/architecture
-if (WINDOWS)
-  if (CMAKE_CL_64)
-    set (CPACK_SYSTEM_NAME "win64")
-  else ()
-    set (CPACK_SYSTEM_NAME "win32")
-  endif ()
-  set (CPACK_PACKAGE_ARCHITECTURE)
-elseif (APPLE)
-  set (CPACK_PACKAGE_ARCHITECTURE "darwin")
-else ()
-  string (TOLOWER "${CMAKE_SYSTEM_NAME}" CPACK_SYSTEM_NAME)
-  if (CMAKE_CXX_FLAGS MATCHES "-m32")
-    set (CPACK_PACKAGE_ARCHITECTURE i386)
-  else ()
-    execute_process (
-      COMMAND         dpkg --print-architecture
-      RESULT_VARIABLE RV
-      OUTPUT_VARIABLE CPACK_PACKAGE_ARCHITECTURE
-      )
-    if (RV EQUAL 0)
-          string (STRIP "${CPACK_PACKAGE_ARCHITECTURE}" CPACK_PACKAGE_ARCHITECTURE)
-    else ()
-      execute_process (COMMAND uname -m OUTPUT_VARIABLE CPACK_PACKAGE_ARCHITECTURE)
-      if (CPACK_PACKAGE_ARCHITECTURE MATCHES "x86_64")
-            set (CPACK_PACKAGE_ARCHITECTURE amd64)
-      else ()
-        set (CPACK_PACKAGE_ARCHITECTURE i386)
-      endif ()
-    endif ()
-  endif ()
-endif ()
-
-set(CPACK_PACKAGE_NAME   "${TARGET_NAME}")
-set(CPACK_PACKAGE_CONTACT "job@minhang.me")
-set(CPACK_PACKAGE_VERSION "${PROJECT_VERSION}")
-set(CPACK_PACKAGE_VERSION_MAJOR "${PROJECT_VERSION_MAJOR}")
-set(CPACK_PACKAGE_VERSION_MINOR "${PROJECT_VERSION_MINOR}")
-set(CPACK_PACKAGE_VERSION_PATCH "${PROJECT_VERSION_PATCH}")
-set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Apollo CyberRT")
-set(CPACK_INSTALL_PREFIX              "${CMAKE_INSTALL_PREFIX}")
-set(CPACK_OUTPUT_FILE_PREFIX          "packages")
-set(CPACK_PACKAGE_RELOCATABLE         TRUE)
-set(CPACK_MONOLITHIC_INSTALL          TRUE)
-set(CPACK_PACKAGING_INSTALL_PREFIX ${CMAKE_INSTALL_PREFIX})
-set(CPACK_RPM_PACKAGE_GROUP "Development/Libraries")
-set(CPACK_RPM_PACKAGE_LICENSE "MIT")
-set(CPACK_DEBIAN_PACKAGE_HOMEPAGE "https://github.com/minhanghuang/CyberRT")
-set(CPACK_PACKAGE_FILE_NAME   "lib${CPACK_PACKAGE_NAME}")
-set(CPACK_PACKAGE_FILE_NAME   "${CPACK_PACKAGE_FILE_NAME}_${CPACK_PACKAGE_VERSION}_${CPACK_PACKAGE_ARCHITECTURE}")
-
-include(CPack)
-# --------------------------------------------------------------
-#                       package
-# --------------------------------------------------------------
-configure_file("cmake/${TARGET_NAME}.pc.in"
-  "${PROJECT_BINARY_DIR}/pkgconfig/${TARGET_NAME}.pc" @ONLY)
-
-configure_package_config_file(
-  "${CMAKE_CURRENT_SOURCE_DIR}/cmake/${TARGET_NAME}-config.cmake.in"
-  "cmake/${TARGET_NAME}-config.cmake"
-  INSTALL_DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/${TARGET_NAME}"
-  NO_CHECK_REQUIRED_COMPONENTS_MACRO
-  PATH_VARS CMAKE_INSTALL_INCLUDEDIR CMAKE_INSTALL_LIBDIR TARGET_NAME
+add_executable(cyber_example_listener_apa ${CMAKE_CURRENT_SOURCE_DIR}/cyber/examples/listener_apa.cc ${CMAKE_CURRENT_SOURCE_DIR}/cyber/examples/apa_proto/error_code.pb.cc ${CMAKE_CURRENT_SOURCE_DIR}/cyber/examples/apa_proto/header.pb.cc ${CMAKE_CURRENT_SOURCE_DIR}/cyber/examples/apa_proto/odometry.pb.cc)
+target_link_libraries(cyber_example_listener_apa
+    ${TARGET_NAME}
+    ${Glog_LIBRARIES}
+    ${Gflags_LIBRARIES}
+    ${Protobuf_LIBRARIES}
+    ${Poco_LIBRARIES}
+    protobuf
+    glog
+    gflags
+    fastrtps
+    fastcdr
+    atomic
+    uuid
+    log
+    # pthread
 )
 
-write_basic_package_version_file(cmake/${TARGET_NAME}-config-version.cmake
-  VERSION ${PROJECT_VERSION}
-  COMPATIBILITY AnyNewerVersion
-)
+# add_executable(mainboard
+#   cyber/mainboard/mainboard.cc
+#   cyber/mainboard/module_argument.cc
+#   cyber/mainboard/module_controller.cc
+# )
+# target_link_libraries(mainboard
+#   # pthread
+#   ${TARGET_NAME}
+#   uuid
+# )
+# set_target_properties(mainboard PROPERTIES RUNTIME_OUTPUT_DIRECTORY "bin/")
 
-install(FILES
-  "${PROJECT_BINARY_DIR}/pkgconfig/${TARGET_NAME}.pc"
-  DESTINATION "${CMAKE_INSTALL_DATADIR}/pkgconfig"
-)
 
-install(FILES 
-  "${PROJECT_BINARY_DIR}/cmake/${TARGET_NAME}-config.cmake"
-  "${PROJECT_BINARY_DIR}/cmake/${TARGET_NAME}-config-version.cmake"
-  DESTINATION "${CMAKE_INSTALL_DATADIR}/cmake/${TARGET_NAME}"
-)
+# add_subdirectory(cyber/examples)
+# add_subdirectory(cyber/python)
+# add_subdirectory(cyber/tools)
 
-install(EXPORT ${TARGET_NAME}-targets
-  DESTINATION "${CMAKE_INSTALL_DATADIR}/cmake/${TARGET_NAME}"
-)
+# # --------------------------------------------------------------
+# #                      CPack
+# # --------------------------------------------------------------
+# # 打包方式 
+# include(InstallRequiredSystemLibraries)
+# if (APPLE)
+# elseif (UNIX)
+#   set (CPACK_GENERATOR        "DEB")
+#   set (CPACK_SOURCE_GENERATOR "TGZ;ZIP")
+# endif ()
 
-# cyber .h files
-install(DIRECTORY cyber/
-    DESTINATION include/cyber/
-    FILES_MATCHING
-    PATTERN "*.h"
-)
+# # system/architecture
+# if (WINDOWS)
+#   if (CMAKE_CL_64)
+#     set (CPACK_SYSTEM_NAME "win64")
+#   else ()
+#     set (CPACK_SYSTEM_NAME "win32")
+#   endif ()
+#   set (CPACK_PACKAGE_ARCHITECTURE)
+# elseif (APPLE)
+#   set (CPACK_PACKAGE_ARCHITECTURE "darwin")
+# else ()
+#   string (TOLOWER "${CMAKE_SYSTEM_NAME}" CPACK_SYSTEM_NAME)
+#   if (CMAKE_CXX_FLAGS MATCHES "-m32")
+#     set (CPACK_PACKAGE_ARCHITECTURE i386)
+#   else ()
+#     execute_process (
+#       COMMAND         dpkg --print-architecture
+#       RESULT_VARIABLE RV
+#       OUTPUT_VARIABLE CPACK_PACKAGE_ARCHITECTURE
+#       )
+#     if (RV EQUAL 0)
+#           string (STRIP "${CPACK_PACKAGE_ARCHITECTURE}" CPACK_PACKAGE_ARCHITECTURE)
+#     else ()
+#       execute_process (COMMAND uname -m OUTPUT_VARIABLE CPACK_PACKAGE_ARCHITECTURE)
+#       if (CPACK_PACKAGE_ARCHITECTURE MATCHES "x86_64")
+#             set (CPACK_PACKAGE_ARCHITECTURE amd64)
+#       else ()
+#         set (CPACK_PACKAGE_ARCHITECTURE i386)
+#       endif ()
+#     endif ()
+#   endif ()
+# endif ()
 
-# apollo conf
-file(COPY cyber/conf/
-  DESTINATION ${CMAKE_BINARY_DIR}/share/conf/
-)
-install(DIRECTORY ${CMAKE_BINARY_DIR}/share/conf/
-  DESTINATION share/conf/
-)
+# set(CPACK_PACKAGE_NAME   "${TARGET_NAME}")
+# set(CPACK_PACKAGE_CONTACT "job@minhang.me")
+# set(CPACK_PACKAGE_VERSION "${PROJECT_VERSION}")
+# set(CPACK_PACKAGE_VERSION_MAJOR "${PROJECT_VERSION_MAJOR}")
+# set(CPACK_PACKAGE_VERSION_MINOR "${PROJECT_VERSION_MINOR}")
+# set(CPACK_PACKAGE_VERSION_PATCH "${PROJECT_VERSION_PATCH}")
+# set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Apollo CyberRT")
+# set(CPACK_INSTALL_PREFIX              "${CMAKE_INSTALL_PREFIX}")
+# set(CPACK_OUTPUT_FILE_PREFIX          "packages")
+# set(CPACK_PACKAGE_RELOCATABLE         TRUE)
+# set(CPACK_MONOLITHIC_INSTALL          TRUE)
+# set(CPACK_PACKAGING_INSTALL_PREFIX ${CMAKE_INSTALL_PREFIX})
+# set(CPACK_RPM_PACKAGE_GROUP "Development/Libraries")
+# set(CPACK_RPM_PACKAGE_LICENSE "MIT")
+# set(CPACK_DEBIAN_PACKAGE_HOMEPAGE "https://github.com/minhanghuang/CyberRT")
+# set(CPACK_PACKAGE_FILE_NAME   "lib${CPACK_PACKAGE_NAME}")
+# set(CPACK_PACKAGE_FILE_NAME   "${CPACK_PACKAGE_FILE_NAME}_${CPACK_PACKAGE_VERSION}_${CPACK_PACKAGE_ARCHITECTURE}")
 
-# setup.zsh
-configure_file("setup.bash.in" "${CMAKE_BINARY_DIR}/setup.bash" @ONLY)
-configure_file("setup.zsh.in" "${CMAKE_BINARY_DIR}/setup.zsh" @ONLY)
-install(FILES ${CMAKE_BINARY_DIR}/setup.zsh ${CMAKE_BINARY_DIR}/setup.bash
-  DESTINATION .
-)
+# include(CPack)
+# # --------------------------------------------------------------
+# #                       package
+# # --------------------------------------------------------------
+# configure_file("cmake/${TARGET_NAME}.pc.in"
+#   "${PROJECT_BINARY_DIR}/pkgconfig/${TARGET_NAME}.pc" @ONLY)
 
-# cyber python api
-file(COPY cyber/python/
-  DESTINATION ${CMAKE_BINARY_DIR}/${CYBER_PYTHON_PATH}
-)
-install(DIRECTORY ${CMAKE_BINARY_DIR}/${CYBER_PYTHON_PATH}/
-  DESTINATION ${CYBER_PYTHON_PATH}
-  FILES_MATCHING
-  PATTERN "*.py"
-)
+# configure_package_config_file(
+#   "${CMAKE_CURRENT_SOURCE_DIR}/cmake/${TARGET_NAME}-config.cmake.in"
+#   "cmake/${TARGET_NAME}-config.cmake"
+#   INSTALL_DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/${TARGET_NAME}"
+#   NO_CHECK_REQUIRED_COMPONENTS_MACRO
+#   PATH_VARS CMAKE_INSTALL_INCLUDEDIR CMAKE_INSTALL_LIBDIR TARGET_NAME
+# )
 
-# cyber python protobuf
-file(WRITE ${CMAKE_BINARY_DIR}/${CYBER_PYTHON_PROTOBUF_PATH}/__init__.py "import os\n")
-file(APPEND ${CMAKE_BINARY_DIR}/${CYBER_PYTHON_PROTOBUF_PATH}/__init__.py "import sys\n")
-file(APPEND ${CMAKE_BINARY_DIR}/${CYBER_PYTHON_PROTOBUF_PATH}/__init__.py "sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))\n")
-file(COPY cyber/proto/
-  DESTINATION ${CMAKE_BINARY_DIR}/${CYBER_PYTHON_PROTOBUF_PATH}
-  FILES_MATCHING
-  PATTERN "*.py"
-)
+# write_basic_package_version_file(cmake/${TARGET_NAME}-config-version.cmake
+#   VERSION ${PROJECT_VERSION}
+#   COMPATIBILITY AnyNewerVersion
+# )
 
-install(DIRECTORY ${CMAKE_BINARY_DIR}/${CYBER_PYTHON_PROTOBUF_PATH}/
-  DESTINATION ${CYBER_PYTHON_PROTOBUF_PATH}
-)
+# install(FILES
+#   "${PROJECT_BINARY_DIR}/pkgconfig/${TARGET_NAME}.pc"
+#   DESTINATION "${CMAKE_INSTALL_DATADIR}/pkgconfig"
+# )
 
-# install
-install(TARGETS ${TARGET_NAME} mainboard
-    EXPORT ${TARGET_NAME}-targets
-    ARCHIVE DESTINATION lib
-    LIBRARY DESTINATION lib
-    RUNTIME DESTINATION bin
-)
+# install(FILES 
+#   "${PROJECT_BINARY_DIR}/cmake/${TARGET_NAME}-config.cmake"
+#   "${PROJECT_BINARY_DIR}/cmake/${TARGET_NAME}-config-version.cmake"
+#   DESTINATION "${CMAKE_INSTALL_DATADIR}/cmake/${TARGET_NAME}"
+# )
+
+# install(EXPORT ${TARGET_NAME}-targets
+#   DESTINATION "${CMAKE_INSTALL_DATADIR}/cmake/${TARGET_NAME}"
+# )
+
+# # cyber .h files
+# install(DIRECTORY cyber/
+#     DESTINATION include/cyber/
+#     FILES_MATCHING
+#     PATTERN "*.h"
+# )
+
+# # apollo conf
+# file(COPY cyber/conf/
+#   DESTINATION ${CMAKE_BINARY_DIR}/share/conf/
+# )
+# install(DIRECTORY ${CMAKE_BINARY_DIR}/share/conf/
+#   DESTINATION share/conf/
+# )
+
+# # setup.zsh
+# configure_file("setup.bash.in" "${CMAKE_BINARY_DIR}/setup.bash" @ONLY)
+# configure_file("setup.zsh.in" "${CMAKE_BINARY_DIR}/setup.zsh" @ONLY)
+# install(FILES ${CMAKE_BINARY_DIR}/setup.zsh ${CMAKE_BINARY_DIR}/setup.bash
+#   DESTINATION .
+# )
+
+# # cyber python api
+# file(COPY cyber/python/
+#   DESTINATION ${CMAKE_BINARY_DIR}/${CYBER_PYTHON_PATH}
+# )
+# install(DIRECTORY ${CMAKE_BINARY_DIR}/${CYBER_PYTHON_PATH}/
+#   DESTINATION ${CYBER_PYTHON_PATH}
+#   FILES_MATCHING
+#   PATTERN "*.py"
+# )
+
+# # cyber python protobuf
+# file(WRITE ${CMAKE_BINARY_DIR}/${CYBER_PYTHON_PROTOBUF_PATH}/__init__.py "import os\n")
+# file(APPEND ${CMAKE_BINARY_DIR}/${CYBER_PYTHON_PROTOBUF_PATH}/__init__.py "import sys\n")
+# file(APPEND ${CMAKE_BINARY_DIR}/${CYBER_PYTHON_PROTOBUF_PATH}/__init__.py "sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))\n")
+# file(COPY cyber/proto/
+#   DESTINATION ${CMAKE_BINARY_DIR}/${CYBER_PYTHON_PROTOBUF_PATH}
+#   FILES_MATCHING
+#   PATTERN "*.py"
+# )
+
+# install(DIRECTORY ${CMAKE_BINARY_DIR}/${CYBER_PYTHON_PROTOBUF_PATH}/
+#   DESTINATION ${CYBER_PYTHON_PROTOBUF_PATH}
+# )
+
+# # install
+# install(TARGETS ${TARGET_NAME} mainboard
+#     EXPORT ${TARGET_NAME}-targets
+#     ARCHIVE DESTINATION lib
+#     LIBRARY DESTINATION lib
+#     RUNTIME DESTINATION bin
+# )
 

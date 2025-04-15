@@ -1,0 +1,73 @@
+# UUID 交叉编译
+
+以下是使用NDK交叉编译uuid库的完整流程：
+
+首先下载源码并配置编译环境：
+
+bash
+# 下载util-linux源码（包含uuid实现）
+wget https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.39/util-linux-2.39.tar.gz
+tar -xvf util-linux-2.39.tar.gz
+cd util-linux-2.39
+
+# 设置NDK工具链路径（根据你的实际路径）
+export NDK=/home/huang/Documents/android-ndk-r21e
+export TOOLCHAIN=$NDK/toolchains/llvm/prebuilt/linux-x86_64
+export TARGET=aarch64-linux-android
+export API=21
+
+# 配置交叉编译环境
+export CC=$TOOLCHAIN/bin/$TARGET$API-clang
+export CXX=$TOOLCHAIN/bin/$TARGET$API-clang++
+export AR=$TOOLCHAIN/bin/llvm-ar
+export RANLIB=$TOOLCHAIN/bin/llvm-ranlib
+配置编译参数并编译：
+
+bash
+# 创建构建目录
+mkdir build && cd build
+
+# 生成配置（只编译uuid相关功能）
+../configure \
+    --host=$TARGET \
+    --prefix=/home/huang/Documents/CyberRT-9.0.0/third-party/android_install \
+    --disable-all-programs \
+    --enable-libuuid \
+    --enable-static=yes \
+    --enable-shared=no \
+    CFLAGS="-fPIC -D_LARGEFILE64_SOURCE"
+
+# 开始编译
+make -j$(nproc)
+make install
+在您的CMakeLists.txt中已经存在的配置基础上，需要确保以下内容：
+
+CMakeLists.txt
+Apply
+# 在现有依赖配置区域确认以下设置
+set(CMAKE_FIND_ROOT_PATH "${CMAKE_CURRENT_SOURCE_DIR}/third-party/android_install")
+
+# 在现有pkg_check_modules配置附近添加
+find_library(UUID_LIBRARY 
+    NAMES uuid
+    PATHS "${CMAKE_CURRENT_SOURCE_DIR}/third-party/android_install/lib"
+)
+该配置与您当前工程中的以下设置兼容：
+
+已配置的NDK工具链路径 /home/huang/Documents/android-ndk-r21e
+第三方库安装目录 third-party/android_install
+arm64-v8a架构目标
+编译完成后，您可以在以下位置找到生成的文件：
+
+
+plainText
+third-party/android_install/
+├── include/uuid/uuid.h
+└── lib/libuuid.a
+如果需要验证编译结果，可以使用以下命令检查库文件信息：
+
+
+bash
+$TOOLCHAIN/bin/llvm-readelf -h /home/huang/Documents/CyberRT-9.0.0/third-party/android_install/lib/libuuid.a
+应该能看到目标架构显示为"AArch64"，证明交叉编译成功。
+

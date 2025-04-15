@@ -84,7 +84,7 @@ void Scheduler::ProcessLevelResourceControl() {
   for (const auto cpu : cpus) {
     CPU_SET(cpu, &set);
   }
-  pthread_setaffinity_np(pthread_self(), sizeof(set), &set);
+  // pthread_setaffinity_np(pthread_self(), sizeof(set), &set);
 }
 
 void Scheduler::SetInnerThreadAttr(const std::string& name, std::thread* thr) {

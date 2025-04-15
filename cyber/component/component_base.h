@@ -85,7 +85,8 @@ class ComponentBase : public std::enable_shared_from_this<ComponentBase> {
         flag_file_path =
             common::GetAbsolutePath(common::WorkRoot(), flag_file_path);
       }
-      google::SetCommandLineOption("flagfile", flag_file_path.c_str());
+      AERROR << "Not implemented flag file path!!!!!!!!!!!!!!!!!!!!!";
+      // google::SetCommandLineOption("flagfile", flag_file_path.c_str());
     }
   }
 
@@ -105,7 +106,8 @@ class ComponentBase : public std::enable_shared_from_this<ComponentBase> {
         flag_file_path =
             common::GetAbsolutePath(common::WorkRoot(), flag_file_path);
       }
-      google::SetCommandLineOption("flagfile", flag_file_path.c_str());
+      AERROR << "Not implemented flag file path!!!!!!!!!!!!!!!!!!!!!";
+      // google::SetCommandLineOption("flagfile", flag_file_path.c_str());
     }
   }
 

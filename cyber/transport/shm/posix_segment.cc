@@ -42,7 +42,8 @@ bool PosixSegment::OpenOrCreate() {
   }
 
   // create managed_shm_
-  int fd = shm_open(shm_name_.c_str(), O_RDWR | O_CREAT | O_EXCL, 0644);
+  int fd = -1;
+  // shm_open(shm_name_.c_str(), O_RDWR | O_CREAT | O_EXCL, 0644);
   if (fd < 0) {
     if (EEXIST == errno) {
       ADEBUG << "shm already exist, open only.";
@@ -65,7 +66,7 @@ bool PosixSegment::OpenOrCreate() {
   if (managed_shm_ == MAP_FAILED) {
     AERROR << "attach shm failed:" << strerror(errno);
     close(fd);
-    shm_unlink(shm_name_.c_str());
+    // shm_unlink(shm_name_.c_str());
     return false;
   }
 
@@ -77,7 +78,7 @@ bool PosixSegment::OpenOrCreate() {
     AERROR << "create state failed.";
     munmap(managed_shm_, conf_.managed_shm_size());
     managed_shm_ = nullptr;
-    shm_unlink(shm_name_.c_str());
+    // shm_unlink(shm_name_.c_str());
     return false;
   }
 
@@ -92,7 +93,7 @@ bool PosixSegment::OpenOrCreate() {
     state_ = nullptr;
     munmap(managed_shm_, conf_.managed_shm_size());
     managed_shm_ = nullptr;
-    shm_unlink(shm_name_.c_str());
+    // shm_unlink(shm_name_.c_str());
     return false;
   }
 
@@ -123,7 +124,7 @@ bool PosixSegment::OpenOrCreate() {
     }
     munmap(managed_shm_, conf_.managed_shm_size());
     managed_shm_ = nullptr;
-    shm_unlink(shm_name_.c_str());
+    // shm_unlink(shm_name_.c_str());
     return false;
   }
 
@@ -138,7 +139,7 @@ bool PosixSegment::OpenOnly() {
   }
 
   // get managed_shm_
-  int fd = shm_open(shm_name_.c_str(), O_RDWR, 0644);
+  int fd = -1;  // shm_open(shm_name_.c_str(), O_RDWR, 0644);
   if (fd == -1) {
     AERROR << "get shm failed: " << strerror(errno);
     return false;
@@ -205,7 +206,7 @@ bool PosixSegment::OpenOnly() {
     }
     munmap(managed_shm_, conf_.managed_shm_size());
     managed_shm_ = nullptr;
-    shm_unlink(shm_name_.c_str());
+    // shm_unlink(shm_name_.c_str());
     return false;
   }
 
@@ -216,10 +217,10 @@ bool PosixSegment::OpenOnly() {
 }
 
 bool PosixSegment::Remove() {
-  if (shm_unlink(shm_name_.c_str()) < 0) {
-    AERROR << "shm_unlink failed: " << strerror(errno);
-    return false;
-  }
+  // if (shm_unlink(shm_name_.c_str()) < 0) {
+  //   AERROR << "shm_unlink failed: " << strerror(errno);
+  //   return false;
+  // }
   return true;
 }
 

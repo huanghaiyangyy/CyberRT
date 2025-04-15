@@ -124,32 +124,34 @@ void GlobalData::InitHostInfo() {
     }
   }
 
-  ifaddrs* ifaddr = nullptr;
-  if (getifaddrs(&ifaddr) != 0) {
-    AERROR << "getifaddrs failed, we will use 127.0.0.1 as host ip.";
-    return;
-  }
-  for (ifaddrs* ifa = ifaddr; ifa; ifa = ifa->ifa_next) {
-    if (ifa->ifa_addr == nullptr) {
-      continue;
-    }
-    int family = ifa->ifa_addr->sa_family;
-    if (family != AF_INET) {
-      continue;
-    }
-    char addr[NI_MAXHOST] = {0};
-    if (getnameinfo(ifa->ifa_addr, sizeof(sockaddr_in), addr, NI_MAXHOST, NULL,
-                    0, NI_NUMERICHOST) != 0) {
-      continue;
-    }
-    std::string tmp_ip(addr);
-    std::string starts = tmp_ip.substr(0, 3);
-    if (starts != "127") {
-      host_ip_ = tmp_ip;
-      break;
-    }
-  }
-  freeifaddrs(ifaddr);
+  // ifaddrs* ifaddr = nullptr;
+  // if (getifaddrs(&ifaddr) != 0) {
+  //   AERROR << "getifaddrs failed, we will use 127.0.0.1 as host ip.";
+  //   return;
+  // }
+  // for (ifaddrs* ifa = ifaddr; ifa; ifa = ifa->ifa_next) {
+  //   if (ifa->ifa_addr == nullptr) {
+  //     continue;
+  //   }
+  //   int family = ifa->ifa_addr->sa_family;
+  //   if (family != AF_INET) {
+  //     continue;
+  //   }
+  //   char addr[NI_MAXHOST] = {0};
+  //   if (getnameinfo(ifa->ifa_addr, sizeof(sockaddr_in), addr, NI_MAXHOST,
+  //   NULL,
+  //                   0, NI_NUMERICHOST) != 0) {
+  //     continue;
+  //   }
+  //   std::string tmp_ip(addr);
+  //   std::string starts = tmp_ip.substr(0, 3);
+  //   if (starts != "127") {
+  //     host_ip_ = tmp_ip;
+  //     break;
+  //   }
+  // }
+  // freeifaddrs(ifaddr);
+  AERROR << "IP not implemented!";
   AINFO << "host ip: " << host_ip_;
 }
 
