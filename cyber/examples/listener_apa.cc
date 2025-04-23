@@ -22,9 +22,9 @@
 
 void MessageCallback(
     const std::shared_ptr<davinci_adas::apa::odometry::Odometry>& msg) {
-  AINFO << "Received message x-> " << msg->x();
-  AINFO << "Received message y-> " << msg->y();
-  AINFO << "Received message yaw-> " << msg->yaw();
+  AERROR << "Received message x-> " << msg->x();
+  AERROR << "Received message y-> " << msg->y();
+  AERROR << "Received message yaw-> " << msg->yaw();
 }
 
 int main(int argc, char* argv[]) {
@@ -33,6 +33,7 @@ int main(int argc, char* argv[]) {
   // create listener node
   auto listener_node = apollo::cyber::CreateNode("listener");
   // create listener
+  AERROR << "Node listener!";
   auto listener_ =
       listener_node->CreateReader<davinci_adas::apa::odometry::Odometry>(
           "/davinci/apa/odometry", MessageCallback);
