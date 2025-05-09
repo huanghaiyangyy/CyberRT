@@ -107,8 +107,20 @@ void ChannelManager::GetWritersOfNode(const std::string& node_name,
 void ChannelManager::GetWritersOfChannel(const std::string& channel_name,
                                          RoleAttrVec* writers) {
   RETURN_IF_NULL(writers);
-  uint64_t key = common::GlobalData::RegisterChannel(channel_name);
-  channel_writers_.Search(key, writers);
+  AERROR << "Get writers of channel_name:" << channel_name;
+  AERROR << "channel_writers_.Size:" << channel_writers_.Size();
+  RoleAttrVec all_writers;
+  GetWriters(&all_writers);
+  // 不通过hash id查找 writer，直接根据channel name查找
+  for (size_t i = 0; i < all_writers.size(); i++) {
+    // AERROR << "all_writers[" << i << "]:" << all_writers.at(i).DebugString();
+    if (all_writers.at(i).channel_name() == channel_name) {
+      writers->emplace_back(all_writers.at(i));
+    }
+  }
+
+  // uint64_t key = common::GlobalData::RegisterChannel(channel_name);
+  // channel_writers_.Search(key, writers);
 }
 
 bool ChannelManager::HasReader(const std::string& channel_name) {
