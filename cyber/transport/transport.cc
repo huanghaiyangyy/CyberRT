@@ -26,7 +26,8 @@ Transport::Transport() {
   CreateParticipant();
   notifier_ = NotifierFactory::CreateNotifier();
   intra_dispatcher_ = IntraDispatcher::Instance();
-  shm_dispatcher_ = ShmDispatcher::Instance();
+  // shm_dispatcher_ = ShmDispatcher::Instance();
+  AERROR << "Disable ShmDispatcher!!!!!!!!!!!!!!!!!!!!!";
   rtps_dispatcher_ = RtpsDispatcher::Instance();
   rtps_dispatcher_->set_participant(participant_);
 }
